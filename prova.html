@@ -153,35 +153,59 @@
     }
     /* Book Cover *//* Book Cover - CORRETTO per mostrare tutta l'immagine */
 /* Book Cover - VERSIONE CORRETTA */
+/* Book Cover - VERSIONE MOBILE-FRIENDLY */
 .book-cover-container {
-  width: 320px;
+  width: 280px;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* Allinea in alto, non al centro */
-  padding-top: 2rem; /* Spazio in alto per bilanciare */
+  margin-top: 2rem;
 }
 
 .book-cover {
   width: 100%;
-  max-width: 320px;
+  max-width: 280px;
   border-radius: 8px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  transform: rotateY(-10deg);
-  transition: transform 0.5s;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  transform: rotateY(-8deg);
+  transition: transform 0.4s ease;
   background: transparent !important;
-  border: none;
 }
 
 .book-cover:hover {
-  transform: rotateY(0deg) scale(1.02);
+  transform: rotateY(0deg) scale(1.03);
 }
 
 .book-cover img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain;
+  vertical-align: top;
   border-radius: 8px;
+  /* Se la tua immagine ha trasparenza ma vuoi sfondo bianco: */
+  background-color: white;
+}
+
+/* Mobile: schermo piccolo */
+@media (max-width: 768px) {
+  .book-cover-container {
+    width: 240px;
+    margin-top: 2.5rem;
+  }
+  .book-cover {
+    max-width: 240px;
+    transform: rotateY(-5deg);
+  }
+}
+
+/* Mobile molto piccolo */
+@media (max-width: 480px) {
+  .book-cover-container {
+    width: 220px;
+  }
+  .book-cover {
+    max-width: 220px;
+    transform: rotateY(0deg); /* niente inclinazione su schermi piccoli */
+  }
 }
     /* Sections */
     section {
