@@ -168,7 +168,8 @@
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
   transform: rotateY(-10deg);
   transition: transform 0.5s;
-  overflow: visible; /* ← IMPORTANTE: evita tagli */
+  background: transparent !important;
+  border: none;
 }
 
 .book-cover:hover {
@@ -676,7 +677,7 @@
     </div>
     <div class="book-cover-container">
       <div class="book-cover">
-        <img src="Documento.png" alt="Copertina del libro Un cammino interiore">
+        <img src="Documento.png" alt="Copertina del libro Un cammino interiore" style="background: white;">
       </div>
     </div>
   </div>
