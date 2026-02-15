@@ -95,33 +95,36 @@
       background: linear-gradient(rgba(44, 24, 16, 0.85), rgba(44, 24, 16, 0.9)), url('https://picsum.photos/seed/book/1920/1080') center/cover no-repeat;
       display: flex;
       align-items: center;
-      text-align: center;
       color: white;
       padding: 0 5%;
     }
-    .hero-content {
-      max-width: 900px;
+    .hero-content-wrapper {
+      display: flex;
+      align-items: center;
+      max-width: 1400px;
       margin: 0 auto;
+      gap: 4rem;
+    }
+    .hero-text {
+      max-width: 650px;
     }
     .hero h1 {
-      font-size: 4rem;
+      font-size: 3.8rem;
       margin-bottom: 1rem;
       text-shadow: 0 2px 10px rgba(0,0,0,0.5);
       font-style: italic;
     }
     .hero h2 {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
       margin-bottom: 2rem;
       font-weight: 300;
       opacity: 0.95;
     }
     .hero p {
       font-size: 1.4rem;
-      margin-bottom: 2rem;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
+      margin-bottom: 2.5rem;
       font-style: italic;
+      max-width: 600px;
     }
     .btn {
       display: inline-block;
@@ -147,6 +150,30 @@
     .btn-large {
       padding: 1.2rem 3rem;
       font-size: 1.25rem;
+    }
+    /* Book Cover */
+    .book-cover-container {
+      width: 320px;
+      height: 480px;
+      perspective: 1000px;
+    }
+    .book-cover {
+      width: 100%;
+      height: 100%;
+      transform: rotateY(-10deg);
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+      transition: transform 0.5s;
+    }
+    .book-cover:hover {
+      transform: rotateY(0deg) scale(1.02);
+    }
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
     /* Sections */
     section {
@@ -182,56 +209,10 @@
       margin-bottom: 3rem;
       font-style: italic;
     }
-    /* Book Section */
-    .book-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-    .book-text {
-      padding-right: 2rem;
-    }
-    .book-text p {
-      margin-bottom: 1.5rem;
-      font-size: 1.15rem;
-    }
-    .book-image {
-      position: relative;
-    }
-    .book-image img {
-      width: 100%;
-      max-width: 450px;
-      border-radius: var(--radius);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      border: 8px solid white;
-      transition: transform 0.5s;
-    }
-    .book-image img:hover {
-      transform: scale(1.02);
-    }
-    .book-quote {
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      color: white;
-      padding: 2rem;
-      border-radius: var(--radius);
-      margin-top: 2rem;
-      font-style: italic;
-      position: relative;
-    }
-    .book-quote::before {
-      content: '"';
-      position: absolute;
-      top: -20px;
-      left: 10px;
-      font-size: 6rem;
-      opacity: 0.2;
-      font-family: Georgia, serif;
-    }
     /* For Who Section */
     .for-who-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2.5rem;
       margin-top: 3rem;
     }
@@ -404,7 +385,7 @@
       width: 100%;
       max-width: 600px;
       margin: 3rem auto;
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      padding-top: 56.25%;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.4);
@@ -416,55 +397,6 @@
       width: 100%;
       height: 100%;
       border: none;
-    }
-    .video-description {
-      max-width: 600px;
-      margin: 2rem auto 0;
-      opacity: 0.95;
-      font-size: 1.2rem;
-    }
-    /* Email Collection */
-    .email-section {
-      background: linear-gradient(135deg, var(--secondary), var(--primary));
-      color: white;
-      padding: 6rem 5%;
-      text-align: center;
-    }
-    .email-container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .email-form {
-      display: flex;
-      gap: 1rem;
-      margin-top: 2rem;
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .email-form input {
-      flex: 1;
-      padding: 1rem 1.5rem;
-      border: none;
-      border-radius: 50px;
-      font-size: 1.05rem;
-      font-family: 'Georgia', serif;
-    }
-    .email-form button {
-      background: var(--accent);
-      color: var(--dark);
-      border: none;
-      padding: 0 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 1.05rem;
-      font-family: 'Georgia', serif;
-    }
-    .email-form button:hover {
-      background: white;
-      transform: translateY(-2px);
     }
     /* Parkinson Section */
     .parkinson-container {
@@ -569,24 +501,6 @@
       color: white;
       transform: translateY(-2px);
     }
-    #contactMessage {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      border-radius: 8px;
-      text-align: center;
-      font-weight: 600;
-      display: none;
-    }
-    #contactMessage.success {
-      background: #d4edda;
-      color: #155724;
-      display: block;
-    }
-    #contactMessage.error {
-      background: #f8d7da;
-      color: #721c24;
-      display: block;
-    }
     /* CTA Final Section */
     .cta-final {
       background: linear-gradient(rgba(44, 24, 16, 0.9), rgba(44, 24, 16, 0.95)), url('https://picsum.photos/seed/sunset/1920/800') center/cover no-repeat;
@@ -618,25 +532,10 @@
       max-width: 800px;
       margin: 0 auto;
     }
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 2rem 0;
-    }
-    .social-links a {
-      color: white;
-      font-size: 1.8rem;
-      transition: transform 0.3s, color 0.3s;
-    }
-    .social-links a:hover {
-      transform: translateY(-3px);
-      color: var(--accent);
-    }
     .copyright {
       opacity: 0.7;
       font-size: 0.95rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
     /* Scroll to Top */
     #scrollToTop {
@@ -669,22 +568,20 @@
     }
     /* Responsive Design */
     @media (max-width: 900px) {
+      .hero-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+      }
+      .hero-text { margin: 0 auto; }
       .hero h1 { font-size: 3rem; }
       .hero h2 { font-size: 1.8rem; }
       .hero p { font-size: 1.2rem; }
-      .book-container,
-      .parkinson-container,
-      .contact-container {
-        grid-template-columns: 1fr;
-      }
-      .book-image, .parkinson-image { order: -1; }
-      .book-text, .parkinson-text, .contact-info { padding-right: 0; }
+      .book-cover-container { width: 280px; height: 420px; }
       section { padding: 4rem 5%; }
       .section-title { font-size: 2.3rem; }
-      .email-form { flex-direction: column; }
       .cta-final h2 { font-size: 2.3rem; }
       .cta-final p { font-size: 1.3rem; }
-      .video-embed { max-width: 100%; }
     }
     @media (max-width: 768px) {
       .hamburger { display: block; }
@@ -711,7 +608,7 @@
         left: 0;
         transform: none;
       }
-      .email-section, .video-container { padding: 4rem 5%; }
+      .video-container, .email-section { padding: 4rem 5%; }
       .excerpt-container { padding: 2rem; }
     }
     @media (max-width: 480px) {
@@ -722,8 +619,7 @@
       .btn { padding: 0.8rem 2rem; font-size: 1rem; }
       .btn-large { padding: 1rem 2.5rem; font-size: 1.1rem; }
       section { padding: 3rem 5%; }
-      .excerpt-text { font-size: 1.15rem; }
-      .video-description { font-size: 1rem; }
+      .book-cover-container { width: 240px; height: 360px; }
     }
   </style>
 </head>
@@ -751,31 +647,41 @@
 
   <!-- Hero Section -->
   <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Un cammino interiore</h1>
-      <h2>Dialoghi terreni tra due anime</h2>
-      <p>Non è solo un libro.<br>È una conversazione che ti attraversa.</p>
-      <p>Un viaggio tra dolore, speranza, risveglio e coscienza.<br>Parole che non spiegano la vita. La toccano.</p>
-      <a href="#il-libro" class="btn btn-large">Acquistalo su Amazon</a>
+    <div class="hero-content-wrapper">
+      <div class="hero-text">
+        <h1>Un cammino interiore</h1>
+        <h2>Dialoghi terreni tra due anime</h2>
+        <p>Non è solo un libro.<br>È una conversazione che ti attraversa.</p>
+        <p>Un viaggio tra dolore, speranza, risveglio e coscienza.<br>Parole che non spiegano la vita. La toccano.</p>
+        <a href="#il-libro" class="btn btn-large">Acquistalo su Amazon</a>
+      </div>
+      <div class="book-cover-container">
+        <div class="book-cover">
+          <img src="copertina.jpg" alt="Copertina del libro Un cammino interiore">
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Il Libro Section -->
   <section id="il-libro">
     <h2 class="section-title">Il Libro</h2>
-    <div class="book-container">
-      <div class="book-text">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+      <div>
         <p>Questo libro nasce da un incontro.</p>
         <p>Due anime, due storie, un dialogo autentico.</p>
         <p>Pagina dopo pagina, il lettore entra in conversazioni vere.<br>Senza maschere. Senza retorica.</p>
         <p>Si parla di dolore, di cadute, di silenzi.<br>Ma soprattutto di luce.</p>
         <p>È un libro per chi si sente in cammino.<br>Per chi sta cercando risposte.<br>Per chi non vuole arrendersi.</p>
-        <div class="book-quote">
+        <div style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2rem; border-radius: var(--radius); margin-top: 2rem; font-style: italic; position: relative;">
+          <div style="position: absolute; top: -20px; left: 10px; font-size: 6rem; opacity: 0.2; font-family: Georgia, serif;">"</div>
           Qui non stai vendendo carta.<br>Stai vendendo un viaggio.
         </div>
       </div>
-      <div class="book-image">
-        <img src="https://picsum.photos/seed/cover/400/600" alt="Copertina del libro Un cammino interiore">
+      <div style="text-align: center;">
+        <div style="width: 300px; height: 450px; background: linear-gradient(135deg, #d4a76a, #6b4226); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; font-style: italic; margin: 0 auto;">
+          Copertina<br>del libro
+        </div>
       </div>
     </div>
   </section>
@@ -799,11 +705,6 @@
         <i class="fas fa-search"></i>
         <h3>Vuoi ritrovare te stesso</h3>
         <p>E hai bisogno di una guida gentile.</p>
-      </div>
-      <div class="for-who-card">
-        <i class="fas fa-comments"></i>
-        <h3>Ama i dialoghi profondi e veri</h3>
-        <p>Senza filtri, senza finzioni.</p>
       </div>
     </div>
   </section>
@@ -851,7 +752,7 @@
           <i class="fas fa-star"></i>
         </div>
         <div class="review-text">
-          Questo libro mi ha letteralmente salvato la vita. In un momento di profonda crisi, le parole di Celeste e Davide mi hanno fatto sentire meno solo. Non è un semplice libro di auto-aiuto, è un dialogo anima-anima che ti accompagna nel buio con delicatezza e verità.
+          Questo libro mi ha letteralmente salvato la vita. In un momento di profonda crisi, le parole di Celeste e Davide mi hanno fatto sentire meno solo. Non è un semplice libro di auto-aiuto, è un dialogo anima-anima.
         </div>
         <span class="review-author">— Marco T., Milano</span>
       </div>
@@ -864,7 +765,7 @@
           <i class="fas fa-star"></i>
         </div>
         <div class="review-text">
-          Ho letto centinaia di libri spirituali, ma questo è diverso. La sincerità con cui affrontano il dolore e la speranza è disarmante. Mi ha fatto piangere, riflettere e soprattutto, mi ha dato la forza di continuare il mio cammino quando tutto sembrava perduto.
+          Ho letto centinaia di libri spirituali, ma questo è diverso. La sincerità con cui affrontano il dolore e la speranza è disarmante. Mi ha fatto piangere, riflettere e soprattutto, mi ha dato la forza di continuare il mio cammino.
         </div>
         <span class="review-author">— Laura B., Roma</span>
       </div>
@@ -877,7 +778,7 @@
           <i class="fas fa-star-half-alt"></i>
         </div>
         <div class="review-text">
-          La storia di Davide con il Parkinson mi ha toccato profondamente. Come infermiera, vedo ogni giorno la sofferenza, ma questo libro mi ha insegnato a guardare oltre la malattia, a vedere la persona dietro il sintomo. Un'opera necessaria per chi cura e per chi soffre.
+          La storia di Davide con il Parkinson mi ha toccato profondamente. Come infermiera, vedo ogni giorno la sofferenza, ma questo libro mi ha insegnato a guardare oltre la malattia, a vedere la persona.
         </div>
         <span class="review-author">— Anna M., Torino</span>
       </div>
@@ -958,24 +859,6 @@
       <div class="video-embed">
         <iframe src="https://www.youtube.com/embed/-eil04SlSrk" title="Un cammino interiore - Davide Ferrero" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-      <p class="video-description">
-        Un momento intimo in cui Davide racconta cosa significa intraprendere un vero cammino interiore, oltre le apparenze e le maschere sociali.
-      </p>
-    </div>
-  </section>
-
-  <!-- Email Collection Section -->
-  <section class="email-section">
-    <div class="email-container">
-      <h2 class="section-title" style="color: white; left: 50%; transform: translateX(-50%);">Unisciti al Viaggio</h2>
-      <p style="font-size: 1.4rem; max-width: 600px; margin: 0 auto 2rem; opacity: 0.95;">
-        Iscriviti alla lista dei lettori per ricevere estratti esclusivi, riflessioni personali e aggiornamenti sulle prossime uscite.
-      </p>
-      <form class="email-form" id="emailForm">
-        <input type="email" placeholder="La tua email" required>
-        <button type="submit">Iscriviti</button>
-      </form>
-      <p id="emailMessage" style="margin-top: 1.5rem; font-size: 1.05rem;"></p>
     </div>
   </section>
 
@@ -1020,29 +903,21 @@
             <p>"Un cammino interiore"<br>Dialoghi terreni tra due anime</p>
           </div>
         </div>
-        <div class="contact-info-item">
-          <i class="fas fa-heart"></i>
-          <div>
-            <h3>Messaggio</h3>
-            <p>Se il libro ti ha toccato,<br>ci farebbe piacere conoscere la tua storia.</p>
-          </div>
-        </div>
       </div>
-      <form class="contact-form" id="contactForm">
+      <form class="contact-form" action="send_email.html" method="GET">
         <div class="form-group">
-          <input type="text" id="contactName" placeholder="Nome e Cognome *" required>
+          <input type="text" name="name" placeholder="Nome e Cognome *" required>
         </div>
         <div class="form-group">
-          <input type="email" id="contactEmail" placeholder="Email *" required>
+          <input type="email" name="email" placeholder="Email *" required>
         </div>
         <div class="form-group">
-          <input type="text" id="contactSubject" placeholder="Oggetto">
+          <input type="text" name="subject" placeholder="Oggetto">
         </div>
         <div class="form-group">
-          <textarea id="contactMessageText" placeholder="Il tuo messaggio *" required></textarea>
+          <textarea name="message" placeholder="Il tuo messaggio *" required></textarea>
         </div>
         <button type="submit">Invia Messaggio</button>
-        <p id="contactMessage"></p>
       </form>
     </div>
   </section>
@@ -1063,11 +938,6 @@
       </div>
       <div style="font-size: 1.1rem; margin: 1rem 0;">
         <strong>Celeste e Davide Ferrero</strong>
-      </div>
-      <div class="social-links">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
       </div>
       <p class="copyright">
         © 2026 Celeste e Davide Ferrero. Tutti i diritti riservati.<br>
@@ -1126,75 +996,6 @@
       } else {
         scrollToTopBtn.classList.remove('show');
       }
-    });
-
-    // Email Form Submission
-    const emailForm = document.getElementById('emailForm');
-    const emailMessage = document.getElementById('emailMessage');
-    
-    emailForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const email = emailForm.querySelector('input').value;
-      
-      // Show success message
-      emailMessage.style.color = 'white';
-      emailMessage.innerHTML = `Grazie per esserti iscritto! Ti invieremo aggiornamenti esclusivi su "Un cammino interiore".`;
-      
-      // Reset form
-      emailForm.reset();
-      
-      // Hide message after 6 seconds
-      setTimeout(() => {
-        emailMessage.innerHTML = '';
-      }, 6000);
-    });
-
-    // Contact Form Submission
-    const contactForm = document.getElementById('contactForm');
-    const contactMessageDiv = document.getElementById('contactMessage');
-    
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const name = document.getElementById('contactName').value;
-      
-      // Show success message (client-side only)
-      contactMessageDiv.textContent = `Grazie ${name}! Il tuo messaggio è stato ricevuto. Ti risponderemo a breve all'indirizzo che hai indicato.`;
-      contactMessageDiv.className = 'success';
-      
-      // Reset form
-      contactForm.reset();
-      
-      // Hide message after 8 seconds
-      setTimeout(() => {
-        contactMessageDiv.textContent = '';
-        contactMessageDiv.className = '';
-      }, 8000);
-      
-      // ⚠️ PER INVIARE EMAIL REALMENTE:
-      // Questo form mostra solo un messaggio ma NON invia email.
-      // Per farlo funzionare, usa Formspree (gratuito):
-      // 1. Vai su https://formspree.io/register
-      // 2. Crea un form e ottieni l'URL tipo: https://formspree.io/f/xyzabc123
-      // 3. Sostituisci il form con:
-      /*
-      <form class="contact-form" action="https://formspree.io/f/xyzabc123" method="POST">
-        <div class="form-group">
-          <input type="text" name="name" placeholder="Nome e Cognome *" required>
-        </div>
-        <div class="form-group">
-          <input type="email" name="email" placeholder="Email *" required>
-        </div>
-        <div class="form-group">
-          <input type="text" name="subject" placeholder="Oggetto">
-        </div>
-        <div class="form-group">
-          <textarea name="message" placeholder="Il tuo messaggio *" required></textarea>
-        </div>
-        <button type="submit">Invia Messaggio</button>
-      </form>
-      */
     });
 
     // Set active navigation link on scroll
