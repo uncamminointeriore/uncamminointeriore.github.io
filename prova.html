@@ -153,40 +153,62 @@
     }
     /* Book Cover *//* Book Cover - CORRETTO per mostrare tutta l'immagine */
 /* Book Cover - VERSIONE CORRETTA */
-/* Book Cover - VERSIONE MOBILE-FRIENDLY */
+/* Book Cover - VERSIONE COMPATTA */
 .book-cover-container {
-  width: 280px;
+  width: 100%;
+  max-width: 320px;
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin: 0 auto;
 }
 
 .book-cover {
   width: 100%;
-  max-width: 280px;
+  max-width: 320px;
+  max-height: 450px; /* ← LIMITA L'ALTEZZA MASSIMA */
   border-radius: 8px;
   box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-  transform: rotateY(-8deg);
+  transform: rotateY(-6deg);
   transition: transform 0.4s ease;
+  overflow: visible;
   background: transparent !important;
 }
 
 .book-cover:hover {
-  transform: rotateY(0deg) scale(1.03);
+  transform: rotateY(0deg) scale(1.02);
 }
 
 .book-cover img {
   width: 100%;
   height: auto;
+  max-height: 450px; /* ← IMPORTANTE: stesso limite */
   display: block;
   vertical-align: top;
   border-radius: 8px;
-  /* Se la tua immagine ha trasparenza ma vuoi sfondo bianco: */
-  .book-cover img {
-  background: transparent !important;
-}
+  object-fit: contain;
+  background-color: white; /* solo se vuoi sfondo bianco */
 }
 
+/* Mobile: riduci ulteriormente */
+@media (max-width: 768px) {
+  .book-cover {
+    max-height: 400px;
+    transform: rotateY(-4deg);
+  }
+  .book-cover img {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .book-cover {
+    max-height: 350px;
+    transform: rotateY(0deg);
+  }
+  .book-cover img {
+    max-height: 350px;
+  }
+}
 /* Mobile: schermo piccolo */
 @media (max-width: 768px) {
   .book-cover-container {
