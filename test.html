@@ -152,25 +152,23 @@
       font-size: 1.25rem;
     }
     /* Book Cover *//* Book Cover - CORRETTO per mostrare tutta l'immagine */
+/* Book Cover - VERSIONE CORRETTA */
 .book-cover-container {
   width: 320px;
-  height: auto;
-  max-height: 500px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: flex-start; /* Allinea in alto, non al centro */
+  padding-top: 2rem; /* Spazio in alto per bilanciare */
 }
 
 .book-cover {
   width: 100%;
-  height: auto;
   max-width: 320px;
-  max-height: 500px;
   border-radius: 8px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  overflow: hidden;
   transform: rotateY(-10deg);
   transition: transform 0.5s;
+  overflow: visible; /* ← IMPORTANTE: evita tagli */
 }
 
 .book-cover:hover {
@@ -181,7 +179,8 @@
   width: 100%;
   height: auto;
   display: block;
-  object-fit: contain; /* ← IMPORTANTE: mostra tutta l'immagine */
+  object-fit: contain;
+  border-radius: 8px;
 }
     /* Sections */
     section {
