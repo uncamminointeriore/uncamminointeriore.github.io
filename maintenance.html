@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prossimamente | Un cammino interiore</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background: #f5f1e6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      background: white;
+      padding: 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    h1 {
+      color: #6b4226;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    input {
+      padding: 0.8rem;
+      width: 100%;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1.1rem;
+    }
+    button {
+      background: #d4a76a;
+      color: #2c1810;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #6b4226;
+      color: white;
+    }
+    .error {
+      color: #d32f2f;
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Il sito è in preparazione</h1>
+    <p>In attesa del lancio ufficiale del libro.<br>Accesso riservato agli autori e collaboratori.</p>
+    
+    <input type="password" id="password" placeholder="Password segreta">
+    <button onclick="checkPassword()">Accedi</button>
+    <div id="error" class="error"></div>
+  </div>
+
+  <script>
+    // 🔑 Cambia questa password con una tua segreta
+    const CORRECT_PASSWORD = "libro2026"; // <-- MODIFICA QUI
+
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      const errorDiv = document.getElementById('error');
+      
+      if (input === CORRECT_PASSWORD) {
+        // Reindirizza alla home reale
+        window.location.href = 'index.html';
+      } else {
+        errorDiv.textContent = "Password errata. Contatta gli autori.";
+        document.getElementById('password').value = '';
+      }
+    }
+
+    // Permetti anche l'invio con INVIO
+    document.getElementById('password').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        checkPassword();
+      }
+    });
+  </script>
+</body>
+</html>
