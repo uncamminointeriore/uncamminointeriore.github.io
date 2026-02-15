@@ -628,6 +628,18 @@
       section { padding: 3rem 5%; }
       .book-cover-container { width: 240px; height: 360px; }
     }
+
+    /* Rimuove lo spazio extra sotto le immagini */
+.book-cover img {
+  vertical-align: top;
+  display: block;
+}
+
+/* Assicura che il contenitore non abbia sfondo */
+.book-cover-container,
+.book-cover {
+  background: transparent !important;
+}
   </style>
 </head>
 <body>
