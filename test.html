@@ -24,7 +24,7 @@
       color: var(--text);
       background-color: var(--light);
       overflow-x: hidden;
-      padding-top: 70px; /* Compensa l'header fisso */
+      padding-top: 70px;
     }
     h1, h2, h3, h4 {
       font-family: 'Georgia', serif;
@@ -53,43 +53,19 @@
       font-weight: 600;
       color: var(--primary);
     }
-    @media (max-width: 768px) {
-  .hamburger { display: block; }
-  .nav-links {
-    position: fixed;
-    top: 70px;
-    right: -100%;
-    flex-direction: column;
-    background: white;
-    width: 80%;
-    height: auto;
-    min-height: 300px;
-    max-height: calc(100vh - 70px);
-    padding: 1.5rem 2rem;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    transition: right 0.4s ease;
-    z-index: 999;
-    overflow-y: auto;
-  }
-  .nav-links.active {
-    right: 0;
-  }
-  .nav-links li {
-    margin: 0.6rem 0 !important; /* ← PIÙ VICINE */
-    padding: 0.3rem 0 !important;
-  }
-  .nav-links a {
-    font-size: 1.1rem !important;
-    padding: 0.4rem 0 !important;
-    display: block;
-  }
-  .section-title {
-    font-size: 2rem;
-    width: 100%;
-    left: 0;
-    transform: none;
-  }
-}
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--dark);
+      font-size: 1.05rem;
+      transition: color 0.3s;
+      position: relative;
+      font-family: 'Georgia', serif;
+    }
     .nav-links a:hover, .nav-links a.active {
       color: var(--primary);
     }
@@ -208,9 +184,9 @@
       height: auto;
       max-height: 450px;
       display: block;
+      vertical-align: top;
       border-radius: 8px;
       object-fit: contain;
-      
     }
     /* Sections */
     section {
@@ -222,7 +198,6 @@
     .section-title {
       text-align: center;
       font-size: 2.5rem;
-      vertical-align: top;
       margin-bottom: 3rem;
       color: var(--dark);
       position: relative;
@@ -647,7 +622,7 @@
         padding-right: 2rem;
       }
     }
-    /* Mobile menu */
+    /* Mobile menu - COMPATTO */
     @media (max-width: 768px) {
       .hamburger { display: block; }
       .nav-links {
@@ -657,19 +632,27 @@
         flex-direction: column;
         background: white;
         width: 80%;
-        height: calc(100vh - 70px);
-        padding: 2rem;
+        height: auto;
+        min-height: 300px;
+        max-height: calc(100vh - 70px);
+        padding: 1.5rem 2rem;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
         transition: right 0.4s ease;
         z-index: 999;
+        overflow-y: auto;
       }
       .nav-links.active {
         right: 0;
       }
- 
-    .nav-links li { margin: 0.8rem 0; padding: 0.4rem 0; }
-  
-
+      .nav-links li {
+        margin: 0.6rem 0 !important;
+        padding: 0.3rem 0 !important;
+      }
+      .nav-links a {
+        font-size: 1.1rem !important;
+        padding: 0.4rem 0 !important;
+        display: block;
+      }
       .section-title {
         font-size: 2rem;
         width: 100%;
@@ -774,11 +757,10 @@
         </div>
       </div>
       <div class="author-card">
-      <div class="author-image" style="background-image: url('https://images.unsplash.com/photo-1518790907259-2d3e3ad852d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=500&q=80');"></div>
+        <div class="author-image" style="background-image: url('fenice.png');"></div>
         <div class="author-info">
           <h3>Celeste</h3>
           <p>Porta nel dialogo sensibilità, ascolto e profondità.</p>
-          <p>La sua voce è quella della compassione che accoglie senza giudicare.</p>
           <p>Come una fenice, trasforma il dolore in rinascita.</p>
         </div>
       </div>
@@ -787,7 +769,6 @@
       Insieme hanno dato voce a un cammino che non appartiene solo a loro.<br>
       Appartiene a chiunque sia pronto ad ascoltare.
     </div>
-    
   </section>
 
   <!-- Recensioni Section -->
