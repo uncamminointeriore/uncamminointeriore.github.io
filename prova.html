@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+A<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="UTF-8">
@@ -18,12 +18,16 @@
       --radius: 8px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Georgia', serif;
       line-height: 1.8;
       color: var(--text);
       background-color: var(--light);
       overflow-x: hidden;
+      padding-top: 70px;
     }
     h1, h2, h3, h4 {
       font-family: 'Georgia', serif;
@@ -43,7 +47,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.2rem 5%;
+      padding: 1rem 5%;
       max-width: 1400px;
       margin: 0 auto;
     }
@@ -55,7 +59,7 @@
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 2.5rem;
+      gap: 2rem;
     }
     .nav-links a {
       text-decoration: none;
@@ -88,43 +92,50 @@
       font-size: 1.5rem;
       color: var(--dark);
       cursor: pointer;
+      z-index: 1001;
     }
     /* Hero Section */
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       background: linear-gradient(rgba(44, 24, 16, 0.85), rgba(44, 24, 16, 0.9)), url('https://picsum.photos/seed/book/1920/1080') center/cover no-repeat;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      justify-content: center;
       color: white;
-      padding: 0 5%;
+      padding: 2rem 5% 4rem;
+      box-sizing: border-box;
     }
     .hero-content-wrapper {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      max-width: 1400px;
-      margin: 0 auto;
-      gap: 4rem;
+      max-width: 900px;
+      width: 100%;
+      margin-top: 1rem;
+      gap: 2.5rem;
     }
     .hero-text {
-      max-width: 650px;
+      text-align: center;
+      max-width: 700px;
+      z-index: 2;
     }
     .hero h1 {
-      font-size: 3.8rem;
+      font-size: 2.8rem;
       margin-bottom: 1rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
       font-style: italic;
     }
     .hero h2 {
-      font-size: 2.1rem;
-      margin-bottom: 2rem;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
       font-weight: 300;
       opacity: 0.95;
     }
     .hero p {
-      font-size: 1.4rem;
-      margin-bottom: 2.5rem;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
       font-style: italic;
-      max-width: 600px;
+      line-height: 1.6;
     }
     .btn {
       display: inline-block;
@@ -151,96 +162,47 @@
       padding: 1.2rem 3rem;
       font-size: 1.25rem;
     }
-    /* Book Cover *//* Book Cover - CORRETTO per mostrare tutta l'immagine */
-/* Book Cover - VERSIONE CORRETTA */
-/* Book Cover - VERSIONE COMPATTA */
-.book-cover-container {
-  width: 100%;
-  max-width: 320px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.book-cover {
-  width: 100%;
-  max-width: 320px;
-  max-height: 450px; /* ← LIMITA L'ALTEZZA MASSIMA */
-  border-radius: 8px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-  transform: rotateY(-6deg);
-  transition: transform 0.4s ease;
-  overflow: visible;
-  background: transparent !important;
-}
-
-.book-cover:hover {
-  transform: rotateY(0deg) scale(1.02);
-}
-
-.book-cover img {
-  width: 100%;
-  height: auto;
-  max-height: 450px; /* ← IMPORTANTE: stesso limite */
-  display: block;
-  vertical-align: top;
-  border-radius: 8px;
-  object-fit: contain;
-  background-color: white; /* solo se vuoi sfondo bianco */
-}
-
-/* Mobile: riduci ulteriormente */
-@media (max-width: 768px) {
-  .book-cover {
-    max-height: 400px;
-    transform: rotateY(-4deg);
-  }
-  .book-cover img {
-    max-height: 400px;
-  }
-}
-
-@media (max-width: 480px) {
-  .book-cover {
-    max-height: 350px;
-    transform: rotateY(0deg);
-  }
-  .book-cover img {
-    max-height: 350px;
-  }
-}
-/* Mobile: schermo piccolo */
-@media (max-width: 768px) {
-  .book-cover-container {
-    width: 240px;
-    margin-top: 2.5rem;
-  }
-  .book-cover {
-    max-width: 240px;
-    transform: rotateY(-5deg);
-  }
-}
-
-/* Mobile molto piccolo */
-@media (max-width: 480px) {
-  .book-cover-container {
-    width: 220px;
-  }
-  .book-cover {
-    max-width: 220px;
-    transform: rotateY(0deg); /* niente inclinazione su schermi piccoli */
-  }
-}
+    /* Book Cover */
+    .book-cover-container {
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .book-cover {
+      width: 100%;
+      max-width: 300px;
+      max-height: 450px;
+      border-radius: 8px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      transform: rotateY(-6deg);
+      transition: transform 0.4s ease;
+      overflow: visible;
+    }
+    .book-cover:hover {
+      transform: rotateY(0deg) scale(1.02);
+    }
+    .book-cover img {
+      width: 100%;
+      height: auto;
+      max-height: 450px;
+      display: block;
+      vertical-align: top;
+      border-radius: 8px;
+      object-fit: contain;
+    }
     /* Sections */
     section {
-      padding: 6rem 5%;
+      padding: 5rem 5%;
       max-width: 1200px;
       margin: 0 auto;
+      width: 100%;
     }
     .section-title {
       text-align: center;
-      font-size: 2.8rem;
-      margin-bottom: 4rem;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
       color: var(--dark);
       position: relative;
       display: inline-block;
@@ -251,59 +213,59 @@
     .section-title::after {
       content: '';
       position: absolute;
-      bottom: -12px;
+      bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 80px;
+      width: 70px;
       height: 3px;
       background: var(--accent);
     }
     .section-subtitle {
       text-align: center;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: var(--secondary);
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
       font-style: italic;
     }
     /* For Who Section */
     .for-who-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
     }
     .for-who-card {
       background: white;
-      padding: 2.5rem;
+      padding: 2rem;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s;
       border: 1px solid rgba(107, 66, 38, 0.1);
     }
     .for-who-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     }
     .for-who-card i {
-      font-size: 3.5rem;
+      font-size: 3rem;
       color: var(--accent);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
     .for-who-card h3 {
-      font-size: 1.6rem;
-      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      margin-bottom: 0.8rem;
       color: var(--dark);
     }
     .for-who-card p {
-      font-size: 1.05rem;
+      font-size: 1rem;
     }
     /* Authors Section */
     .authors-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 3rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2.5rem;
     }
     .author-card {
       background: white;
@@ -316,21 +278,21 @@
       transform: translateY(-5px);
     }
     .author-image {
-      height: 350px;
+      height: 300px;
       background-size: cover;
       background-position: center;
     }
     .author-info {
-      padding: 2rem;
+      padding: 1.8rem;
     }
     .author-info h3 {
-      font-size: 2rem;
+      font-size: 1.8rem;
       margin-bottom: 0.5rem;
       color: var(--primary);
     }
     .author-info p {
       margin-bottom: 1rem;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
     }
     /* Reviews Section */
     .reviews-section {
@@ -338,13 +300,13 @@
     }
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2.5rem;
-      margin-top: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
     }
     .review-card {
       background: white;
-      padding: 2.5rem;
+      padding: 2rem;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
       position: relative;
@@ -353,28 +315,25 @@
     .review-card::before {
       content: '"';
       position: absolute;
-      top: -15px;
-      left: 15px;
-      font-size: 5rem;
+      top: -12px;
+      left: 12px;
+      font-size: 4.5rem;
       color: var(--accent);
       opacity: 0.15;
       font-family: Georgia, serif;
     }
     .review-text {
       font-style: italic;
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+      font-size: 1.05rem;
     }
     .review-author {
       font-weight: 600;
       color: var(--primary);
       display: block;
       margin-top: 1rem;
-    }
-    .review-rating {
-      color: #ffc107;
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
     }
     /* Excerpt Section */
     .excerpt-section {
@@ -382,65 +341,66 @@
     }
     .excerpt-container {
       background: white;
-      padding: 4rem;
+      padding: 3rem;
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      margin-top: 3rem;
+      margin-top: 2.5rem;
       position: relative;
       border-left: 4px solid var(--accent);
     }
     .excerpt-container::before {
       content: '"';
       position: absolute;
-      top: -20px;
-      left: 20px;
-      font-size: 8rem;
+      top: -15px;
+      left: 15px;
+      font-size: 6rem;
       color: var(--accent);
       opacity: 0.2;
       font-family: Georgia, serif;
     }
     .excerpt-text {
-      font-size: 1.3rem;
-      line-height: 2;
+      font-size: 1.2rem;
+      line-height: 1.9;
       font-style: italic;
       color: var(--dark);
     }
     .excerpt-dialogue {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
     .excerpt-dialogue .speaker {
       font-weight: 600;
       color: var(--primary);
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
     .excerpt-dialogue .text {
-      margin-left: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin-left: 1.2rem;
+      margin-bottom: 1.2rem;
     }
     .excerpt-attribution {
       text-align: right;
-      margin-top: 2rem;
+      margin-top: 1.5rem;
       font-weight: 600;
       color: var(--secondary);
       font-style: normal;
+      font-size: 1.1rem;
     }
     /* Video Section */
     .video-container {
       background: linear-gradient(135deg, var(--dark), var(--primary));
       color: white;
-      padding: 6rem 5%;
+      padding: 5rem 5%;
       text-align: center;
     }
     .video-content {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
     }
     .video-embed {
       position: relative;
       width: 100%;
-      max-width: 600px;
-      margin: 3rem auto;
+      max-width: 550px;
+      margin: 2.5rem auto;
       padding-top: 56.25%;
       border-radius: var(--radius);
       overflow: hidden;
@@ -457,36 +417,38 @@
     /* Parkinson Section */
     .parkinson-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-      margin-top: 3rem;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
     }
     .parkinson-text {
-      padding-right: 2rem;
+      padding-right: 0;
     }
     .parkinson-text p {
-      margin-bottom: 1.5rem;
-      font-size: 1.15rem;
+      margin-bottom: 1.2rem;
+      font-size: 1.1rem;
     }
     .parkinson-image {
-      height: 450px;
+      height: 300px;
       background: linear-gradient(135deg, var(--primary), var(--dark));
       border-radius: var(--radius);
       display: flex;
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 2rem;
+      font-size: 1.5rem;
       font-style: italic;
+      text-align: center;
+      padding: 1.5rem;
     }
     .parkinson-quote {
       background: var(--light);
-      padding: 2rem;
+      padding: 1.8rem;
       border-radius: var(--radius);
-      margin: 2rem 0;
+      margin: 1.8rem 0;
       border-left: 4px solid var(--accent);
       font-style: italic;
+      font-size: 1.1rem;
     }
     /* Contact Section */
     .contact-section {
@@ -494,40 +456,40 @@
     }
     .contact-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 3rem;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      margin-top: 2.5rem;
     }
     .contact-info {
-      padding-right: 2rem;
+      padding-right: 0;
     }
     .contact-info-item {
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem;
       display: flex;
       align-items: flex-start;
-      gap: 1.5rem;
+      gap: 1.2rem;
     }
     .contact-info-item i {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       color: var(--primary);
-      margin-top: 0.3rem;
+      margin-top: 0.2rem;
     }
     .contact-info-item h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
       color: var(--dark);
     }
     .contact-form .form-group {
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
     }
     .contact-form input,
     .contact-form textarea {
       width: 100%;
-      padding: 1rem;
+      padding: 0.9rem;
       border: 1px solid rgba(107, 66, 38, 0.2);
       border-radius: 8px;
       font-family: 'Georgia', serif;
-      font-size: 1.05rem;
+      font-size: 1rem;
       transition: border-color 0.3s;
     }
     .contact-form input:focus,
@@ -536,14 +498,14 @@
       border-color: var(--accent);
     }
     .contact-form textarea {
-      min-height: 150px;
+      min-height: 120px;
       resize: vertical;
     }
     .contact-form button {
       background: var(--accent);
       color: var(--dark);
       border: none;
-      padding: 1rem 2.5rem;
+      padding: 1rem 2rem;
       border-radius: 50px;
       font-weight: 600;
       cursor: pointer;
@@ -551,6 +513,9 @@
       font-size: 1.05rem;
       font-family: 'Georgia', serif;
       width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      display: block;
     }
     .contact-form button:hover {
       background: var(--primary);
@@ -561,18 +526,18 @@
     .cta-final {
       background: linear-gradient(rgba(44, 24, 16, 0.9), rgba(44, 24, 16, 0.95)), url('https://picsum.photos/seed/sunset/1920/800') center/cover no-repeat;
       color: white;
-      padding: 8rem 5%;
+      padding: 6rem 5%;
       text-align: center;
     }
     .cta-final h2 {
-      font-size: 3rem;
-      margin-bottom: 2rem;
+      font-size: 2.5rem;
+      margin-bottom: 1.8rem;
       font-style: italic;
     }
     .cta-final p {
-      font-size: 1.5rem;
-      margin-bottom: 3rem;
-      max-width: 700px;
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      max-width: 650px;
       margin-left: auto;
       margin-right: auto;
       font-style: italic;
@@ -581,7 +546,7 @@
     footer {
       background: var(--dark);
       color: rgba(255,255,255,0.8);
-      padding: 3rem 5%;
+      padding: 2.5rem 5%;
       text-align: center;
     }
     .footer-content {
@@ -593,7 +558,7 @@
       font-size: 0.95rem;
       margin-top: 1rem;
     }
-    /* Scroll to Top */
+    /* Scroll to Top - CORRETTO */
     #scrollToTop {
       position: fixed;
       bottom: 2rem;
@@ -607,11 +572,12 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s;
       z-index: 999;
+      cursor: pointer;
     }
     #scrollToTop.show {
       opacity: 1;
@@ -622,23 +588,46 @@
       color: white;
       transform: translateY(-3px);
     }
-    /* Responsive Design */
-    @media (max-width: 900px) {
-      .hero-content-wrapper {
-        flex-direction: column;
-        text-align: center;
-        gap: 3rem;
+    /* Desktop layout */
+    @media (min-width: 901px) {
+      .hero {
+        align-items: center;
+        padding: 0 5%;
       }
-      .hero-text { margin: 0 auto; }
-      .hero h1 { font-size: 3rem; }
-      .hero h2 { font-size: 1.8rem; }
-      .hero p { font-size: 1.2rem; }
-      .book-cover-container { width: 280px; height: 420px; }
-      section { padding: 4rem 5%; }
-      .section-title { font-size: 2.3rem; }
-      .cta-final h2 { font-size: 2.3rem; }
-      .cta-final p { font-size: 1.3rem; }
+      .hero-content-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 4rem;
+        margin-top: 0;
+      }
+      .hero-text {
+        text-align: left;
+        max-width: 600px;
+      }
+      .hero h1 { font-size: 3.8rem; }
+      .hero h2 { font-size: 2.1rem; }
+      .hero p { font-size: 1.4rem; }
+      
+      .book-cover-container {
+        max-width: 320px;
+      }
+      .book-cover {
+        max-height: 500px;
+      }
+      .book-cover img {
+        max-height: 500px;
+      }
+      
+      .parkinson-container,
+      .contact-container {
+        grid-template-columns: 1fr 1fr;
+      }
+      .parkinson-text,
+      .contact-info {
+        padding-right: 2rem;
+      }
     }
+    /* Mobile menu - COMPATTO */
     @media (max-width: 768px) {
       .hamburger { display: block; }
       .nav-links {
@@ -647,48 +636,60 @@
         right: -100%;
         flex-direction: column;
         background: white;
-        width: 80%;
-        height: calc(100vh - 70px);
-        padding: 2rem;
+        width: 75%;
+        max-width: 300px;
+        height: auto;
+        min-height: 250px;
+        max-height: calc(100vh - 70px);
+        padding: 1rem 1.5rem;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        transition: right 0.4s ease;
+        transition: right 0.3s ease;
         z-index: 999;
+        overflow-y: auto;
       }
       .nav-links.active {
         right: 0;
       }
-      .nav-links li { margin: 1.5rem 0; }
+      .nav-links li {
+        margin: 0.4rem 0 !important;
+        padding: 0.2rem 0 !important;
+        border-bottom: 1px solid rgba(107, 66, 38, 0.1);
+      }
+      .nav-links li:last-child {
+        border-bottom: none;
+      }
+      .nav-links a {
+        font-size: 1rem !important;
+        padding: 0.5rem 0 !important;
+        display: block;
+      }
       .section-title {
         font-size: 2rem;
         width: 100%;
         left: 0;
         transform: none;
       }
-      .video-container, .email-section { padding: 4rem 5%; }
-      .excerpt-container { padding: 2rem; }
-    }
-    @media (max-width: 480px) {
       .hero h1 { font-size: 2.3rem; }
       .hero h2 { font-size: 1.5rem; }
-      nav { padding: 1rem 5%; }
-      .logo { font-size: 1.3rem; }
-      .btn { padding: 0.8rem 2rem; font-size: 1rem; }
-      .btn-large { padding: 1rem 2.5rem; font-size: 1.1rem; }
-      section { padding: 3rem 5%; }
-      .book-cover-container { width: 240px; height: 360px; }
+      .hero p { font-size: 1.1rem; }
+      .book-cover-container { max-width: 250px; }
+      .book-cover { max-height: 380px; }
+      .book-cover img { max-height: 380px; }
     }
-
-    /* Rimuove lo spazio extra sotto le immagini */
-.book-cover img {
-  vertical-align: top;
-  display: block;
-}
-
-/* Assicura che il contenitore non abbia sfondo */
-.book-cover-container,
-.book-cover {
-  background: transparent !important;
-}
+    @media (max-width: 480px) {
+      .nav-links {
+        width: 85%;
+        padding: 0.8rem 1.2rem;
+      }
+      .nav-links li {
+        margin: 0.3rem 0 !important;
+      }
+      .nav-links a {
+        font-size: 0.95rem !important;
+        padding: 0.4rem 0 !important;
+      }
+      section { padding: 3rem 5%; }
+    }
   </style>
 </head>
 <body>
@@ -696,7 +697,7 @@
   <header>
     <nav>
       <div class="logo">Un cammino interiore</div>
-      <button class="hamburger" id="hamburger">
+      <button class="hamburger" id="hamburger" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
       <ul class="nav-links" id="navLinks">
@@ -713,42 +714,37 @@
     </nav>
   </header>
 
-<!-- Hero Section -->
-<section class="hero" id="home">
-  <div class="hero-content-wrapper">
-    <div class="hero-text">
-      <h1>Un cammino interiore</h1>
-      <h2>Dialoghi terreni tra due anime</h2>
-      <p>Non è solo un libro.<br>È una conversazione che ti attraversa.</p>
-      <p>Un viaggio tra dolore, speranza, risveglio e coscienza.<br>Parole che non spiegano la vita. La toccano.</p>
-      <a href="#il-libro" class="btn btn-large">Acquistalo su Amazon</a>
-    </div>
-    <div class="book-cover-container">
-      <div class="book-cover">
-        <img src="Documento.png" alt="Copertina del libro Un cammino interiore">
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content-wrapper">
+      <div class="hero-text">
+        <h1>Un cammino interiore</h1>
+        <h2>Dialoghi terreni tra due anime</h2>
+        <p>Non è solo un libro.<br>È una conversazione che ti attraversa.</p>
+        <p>Un viaggio tra dolore, speranza, risveglio e coscienza.<br>Parole che non spiegano la vita. La toccano.</p>
+        <a href="#il-libro" class="btn btn-large">Acquistalo su Amazon</a>
+      </div>
+      <div class="book-cover-container">
+        <div class="book-cover">
+          <img src=“copertina500.png" alt="Copertina del libro Un cammino interiore">
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
   <!-- Il Libro Section -->
   <section id="il-libro">
     <h2 class="section-title">Il Libro</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+    <div style="display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center;">
       <div>
         <p>Questo libro nasce da un incontro.</p>
         <p>Due anime, due storie, un dialogo autentico.</p>
         <p>Pagina dopo pagina, il lettore entra in conversazioni vere.<br>Senza maschere. Senza retorica.</p>
         <p>Si parla di dolore, di cadute, di silenzi.<br>Ma soprattutto di luce.</p>
         <p>È un libro per chi si sente in cammino.<br>Per chi sta cercando risposte.<br>Per chi non vuole arrendersi.</p>
-        <div style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 2rem; border-radius: var(--radius); margin-top: 2rem; font-style: italic; position: relative;">
-          <div style="position: absolute; top: -20px; left: 10px; font-size: 6rem; opacity: 0.2; font-family: Georgia, serif;">"</div>
+        <div style="background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 1.8rem; border-radius: var(--radius); margin-top: 1.8rem; font-style: italic; position: relative;">
+          <div style="position: absolute; top: -15px; left: 10px; font-size: 5rem; opacity: 0.2; font-family: Georgia, serif;">"</div>
           Qui non stai vendendo carta.<br>Stai vendendo un viaggio.
-        </div>
-      </div>
-      <div style="text-align: center;">
-        <div style="width: 300px; height: 450px; background: linear-gradient(135deg, #d4a76a, #6b4226); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; font-style: italic; margin: 0 auto;">
-          Copertina<br>del libro
         </div>
       </div>
     </div>
@@ -787,20 +783,19 @@
           <h3>Davide Ferrero</h3>
           <p>Ha conosciuto il dolore da vicino.</p>
           <p>Ma ha scelto di trasformarlo in consapevolezza.</p>
-          <p>La sua esperienza con il Parkinson lo ha portato a cercare risposte oltre le apparenze, a scavare nella profondità dell'anima umana.</p>
+          <p>La sua esperienza con il Parkinson lo ha portato a cercare risposte oltre le apparenze.</p>
         </div>
       </div>
       <div class="author-card">
-        <div class="author-image" style="background-image: url('https://picsum.photos/seed/celeste/400/500');"></div>
+        <div class="author-image" style="background-image: url('fenice.png');"></div>
         <div class="author-info">
           <h3>Celeste</h3>
           <p>Porta nel dialogo sensibilità, ascolto e profondità.</p>
-          <p>La sua voce è quella della compassione, della comprensione silenziosa che accoglie senza giudicare.</p>
-          <p>Insieme creano uno spazio sicuro dove ogni anima può sentirsi capita.</p>
+          <p>Come una fenice, trasforma il dolore in rinascita.</p>
         </div>
       </div>
     </div>
-    <div style="text-align: center; margin-top: 3rem; font-style: italic; font-size: 1.2rem;">
+    <div style="text-align: center; margin-top: 2.5rem; font-style: italic; font-size: 1.1rem;">
       Insieme hanno dato voce a un cammino che non appartiene solo a loro.<br>
       Appartiene a chiunque sia pronto ad ascoltare.
     </div>
@@ -812,41 +807,20 @@
     <p class="section-subtitle">Testimonianze di chi ha intrapreso il cammino</p>
     <div class="reviews-grid">
       <div class="review-card">
-        <div class="review-rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
         <div class="review-text">
-          Questo libro mi ha letteralmente salvato la vita. In un momento di profonda crisi, le parole di Celeste e Davide mi hanno fatto sentire meno solo. Non è un semplice libro di auto-aiuto, è un dialogo anima-anima.
+          Questo libro mi ha letteralmente salvato la vita. In un momento di profonda crisi, le parole di Celeste e Davide mi hanno fatto sentire meno solo.
         </div>
         <span class="review-author">— Marco T., Milano</span>
       </div>
       <div class="review-card">
-        <div class="review-rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </div>
         <div class="review-text">
-          Ho letto centinaia di libri spirituali, ma questo è diverso. La sincerità con cui affrontano il dolore e la speranza è disarmante. Mi ha fatto piangere, riflettere e soprattutto, mi ha dato la forza di continuare il mio cammino.
+          Ho letto centinaia di libri spirituali, ma questo è diverso. La sincerità con cui affrontano il dolore è disarmante.
         </div>
         <span class="review-author">— Laura B., Roma</span>
       </div>
       <div class="review-card">
-        <div class="review-rating">
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star-half-alt"></i>
-        </div>
         <div class="review-text">
-          La storia di Davide con il Parkinson mi ha toccato profondamente. Come infermiera, vedo ogni giorno la sofferenza, ma questo libro mi ha insegnato a guardare oltre la malattia, a vedere la persona.
+          La storia di Davide con il Parkinson mi ha toccato profondamente. Mi ha insegnato a guardare oltre la malattia.
         </div>
         <span class="review-author">— Anna M., Torino</span>
       </div>
@@ -879,7 +853,6 @@
           <span class="speaker">Celeste:</span>
           <div class="text">"E cosa hai scoperto?"</div>
         </div>
-        </div>
         <div class="excerpt-dialogue">
           <span class="speaker">Davide:</span>
           <div class="text">"Che il dolore non è un nemico.<br>È una soglia.<br>Ti chiede solo di attraversarlo."</div>
@@ -892,8 +865,9 @@
           <span class="speaker">Davide:</span>
           <div class="text">"Non devi essere forte per sempre.<br>Devi solo essere presente adesso."</div>
         </div>
-        <div class="excerpt-dialogue" style="text-align: center; margin: 2rem 0; font-style: normal;">
+        <div class="excerpt-dialogue" style="text-align: center; margin: 1.5rem 0; font-style: normal;">
           <div class="text" style="font-style: italic;">Silenzio.</div>
+        </div>
         <div class="excerpt-dialogue">
           <span class="speaker">Celeste:</span>
           <div class="text">"Pensi che tutti abbiano un cammino?"</div>
@@ -921,7 +895,7 @@
   <section class="video-container" id="video">
     <div class="video-content">
       <h2 class="section-title" style="color: white; left: 50%; transform: translateX(-50%);">Il Cuore del Libro</h2>
-      <p style="font-size: 1.4rem; max-width: 700px; margin: 0 auto 1rem; opacity: 0.95;">
+      <p style="font-size: 1.3rem; max-width: 650px; margin: 0 auto 1rem; opacity: 0.95;">
         Davide condivide il significato profondo di questo cammino
       </p>
       <div class="video-embed">
@@ -972,7 +946,7 @@
           </div>
         </div>
       </div>
-    <form class="contact-form" action="send_email.html" method="POST">
+      <form class="contact-form" action="https://formspree.io/f/xkovrpln" method="POST">
         <div class="form-group">
           <input type="text" name="name" placeholder="Nome e Cognome *" required>
         </div>
@@ -985,7 +959,6 @@
         <div class="form-group">
           <textarea name="message" placeholder="Il tuo messaggio *" required></textarea>
         </div>
-      <form class="contact-form" action="https://formspree.io/f/xkovrpln" method="POST">
         <button type="submit">Invia Messaggio</button>
       </form>
     </div>
@@ -1001,11 +974,11 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div style="font-size: 1.3rem; margin-bottom: 1rem; font-style: italic;">
+      <div style="font-size: 1.2rem; margin-bottom: 0.8rem; font-style: italic;">
         Un cammino interiore<br>
-        <span style="font-size: 1.1rem;">Dialoghi terreni tra due anime</span>
+        <span style="font-size: 1rem;">Dialoghi terreni tra due anime</span>
       </div>
-      <div style="font-size: 1.1rem; margin: 1rem 0;">
+      <div style="font-size: 1rem; margin: 0.8rem 0;">
         <strong>Celeste e Davide Ferrero</strong>
       </div>
       <p class="copyright">
@@ -1016,78 +989,108 @@
   </footer>
 
   <!-- Scroll to Top Button -->
-  <a href="#" id="scrollToTop">
+  <a href="#" id="scrollToTop" title="Torna su">
     <i class="fas fa-arrow-up"></i>
   </a>
 
   <!-- JavaScript -->
   <script>
-    // Mobile Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburger.innerHTML = navLinks.classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
-    });
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile Menu Toggle
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          const icon = hamburger.querySelector('i');
+          if (navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          });
+        });
+      }
+
+      // Smooth Scrolling for Anchor Links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if(targetId === '#') return;
+          
+          e.preventDefault();
+          const targetElement = document.querySelector(targetId);
+          if(targetElement) {
+            const headerOffset = 70;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
       });
-    });
 
-    // Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if(targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if(targetElement) {
+      // Scroll to Top Button - CORRETTO
+      const scrollToTopBtn = document.getElementById('scrollToTop');
+      
+      if (scrollToTopBtn) {
+        // Show/hide button on scroll
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('show');
+          } else {
+            scrollToTopBtn.classList.remove('show');
+          }
+        });
+
+        // Scroll to top when clicked
+        scrollToTopBtn.addEventListener('click', function(e) {
+          e.preventDefault();
           window.scrollTo({
-            top: targetElement.offsetTop - 80,
+            top: 0,
             behavior: 'smooth'
           });
-        }
-      });
-    });
-
-    // Scroll to Top Button
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-    window.addEventListener('scroll', () => {
-      if(window.pageYOffset > 300) {
-        scrollToTopBtn.classList.add('show');
-      } else {
-        scrollToTopBtn.classList.remove('show');
+        });
       }
-    });
 
-    // Set active navigation link on scroll
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section');
-      const scrollPos = window.scrollY + 80;
-      
-      sections.forEach(section => {
-        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-          const id = section.getAttribute('id');
-          document.querySelectorAll('.nav-links a').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${id}`) {
-              link.classList.add('active');
-            }
-          });
-        }
+      // Set active navigation link on scroll
+      window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const scrollPos = window.pageYOffset + 70;
+        
+        sections.forEach(section => {
+          if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+            const id = section.getAttribute('id');
+            document.querySelectorAll('.nav-links a').forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
       });
-    });
 
-    // Initialize active link on load
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelector('.nav-links a[href="#home"]').classList.add('active');
+      // Initialize active link on load
+      const homeLink = document.querySelector('.nav-links a[href="#home"]');
+      if (homeLink) {
+        homeLink.classList.add('active');
+      }
     });
   </script>
 </body>
