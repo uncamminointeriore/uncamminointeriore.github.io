@@ -18,6 +18,9 @@
       --radius: 8px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Georgia', serif;
       line-height: 1.8;
@@ -89,6 +92,7 @@
       font-size: 1.5rem;
       color: var(--dark);
       cursor: pointer;
+      z-index: 1001;
     }
     /* Hero Section */
     .hero {
@@ -561,18 +565,19 @@
       right: 2rem;
       background: var(--accent);
       color: var(--dark);
-      width: 45px;
-      height: 45px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s;
       z-index: 999;
+      cursor: pointer;
     }
     #scrollToTop.show {
       opacity: 1;
@@ -622,7 +627,7 @@
         padding-right: 2rem;
       }
     }
-    /* Mobile menu - COMPATTO */
+    /* Mobile menu - ULTRA COMPATTO */
     @media (max-width: 768px) {
       .hamburger { display: block; }
       .nav-links {
@@ -631,27 +636,36 @@
         right: -100%;
         flex-direction: column;
         background: white;
-        width: 80%;
+        width: 70%;
+        max-width: 250px;
         height: auto;
-        min-height: 300px;
+        min-height: 200px;
         max-height: calc(100vh - 70px);
-        padding: 1.5rem 2rem;
+        padding: 0.5rem 1rem;
         box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        transition: right 0.4s ease;
+        transition: right 0.3s ease;
         z-index: 999;
         overflow-y: auto;
+        gap: 0 !important;
+        line-height: 0.3 !important;
       }
       .nav-links.active {
         right: 0;
       }
       .nav-links li {
-        margin: 0.6rem 0 !important;
-        padding: 0.3rem 0 !important;
+        margin: 0.15rem 0 !important;
+        padding: 0.1rem 0 !important;
+        border-bottom: 1px solid rgba(107, 66, 38, 0.08);
+        line-height: 0.3 !important;
+      }
+      .nav-links li:last-child {
+        border-bottom: none;
       }
       .nav-links a {
-        font-size: 1.1rem !important;
-        padding: 0.4rem 0 !important;
+        font-size: 0.95rem !important;
+        padding: 0.35rem 0 !important;
         display: block;
+        line-height: 0.3 !important;
       }
       .section-title {
         font-size: 2rem;
@@ -659,6 +673,26 @@
         left: 0;
         transform: none;
       }
+      .hero h1 { font-size: 2.3rem; }
+      .hero h2 { font-size: 1.5rem; }
+      .hero p { font-size: 1.1rem; }
+      .book-cover-container { max-width: 250px; }
+      .book-cover { max-height: 380px; }
+      .book-cover img { max-height: 380px; }
+    }
+    @media (max-width: 480px) {
+      .nav-links {
+        width: 80%;
+        padding: 0.4rem 0.8rem;
+      }
+      .nav-links li {
+        margin: 0.1rem 0 !important;
+      }
+      .nav-links a {
+        font-size: 0.9rem !important;
+        padding: 0.3rem 0 !important;
+      }
+      section { padding: 3rem 5%; }
     }
   </style>
 </head>
@@ -667,7 +701,7 @@
   <header>
     <nav>
       <div class="logo">Un cammino interiore</div>
-      <button class="hamburger" id="hamburger">
+      <button class="hamburger" id="hamburger" aria-label="Menu">
         <i class="fas fa-bars"></i>
       </button>
       <ul class="nav-links" id="navLinks">
@@ -757,7 +791,7 @@
         </div>
       </div>
       <div class="author-card">
-        <div class="author-image" style="background-image: url('fenice.png');"></div>
+        <div class="author-image" style="background-image: url('https://images.unsplash.com/photo-1518790907259-2d3e3ad852d4?w=400&h=500&fit=crop');"></div>
         <div class="author-info">
           <h3>Celeste</h3>
           <p>Porta nel dialogo sensibilità, ascolto e profondità.</p>
@@ -959,78 +993,106 @@
   </footer>
 
   <!-- Scroll to Top Button -->
-  <a href="#" id="scrollToTop">
+  <a href="#" id="scrollToTop" title="Torna su">
     <i class="fas fa-arrow-up"></i>
   </a>
 
   <!-- JavaScript -->
   <script>
-    // Mobile Menu Toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburger.innerHTML = navLinks.classList.contains('active') 
-        ? '<i class="fas fa-times"></i>' 
-        : '<i class="fas fa-bars"></i>';
-    });
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile Menu Toggle
+      const hamburger = document.getElementById('hamburger');
+      const navLinks = document.getElementById('navLinks');
+      
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function() {
+          navLinks.classList.toggle('active');
+          const icon = hamburger.querySelector('i');
+          if (navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
 
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            const icon = hamburger.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          });
+        });
+      }
+
+      // Smooth Scrolling for Anchor Links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('href');
+          if(targetId === '#') return;
+          
+          e.preventDefault();
+          const targetElement = document.querySelector(targetId);
+          if(targetElement) {
+            const headerOffset = 70;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
       });
-    });
 
-    // Smooth Scrolling for Anchor Links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if(targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if(targetElement) {
+      // Scroll to Top Button
+      const scrollToTopBtn = document.getElementById('scrollToTop');
+      
+      if (scrollToTopBtn) {
+        window.addEventListener('scroll', function() {
+          if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('show');
+          } else {
+            scrollToTopBtn.classList.remove('show');
+          }
+        });
+
+        scrollToTopBtn.addEventListener('click', function(e) {
+          e.preventDefault();
           window.scrollTo({
-            top: targetElement.offsetTop - 70,
+            top: 0,
             behavior: 'smooth'
           });
-        }
-      });
-    });
-
-    // Scroll to Top Button
-    const scrollToTopBtn = document.getElementById('scrollToTop');
-    window.addEventListener('scroll', () => {
-      if(window.pageYOffset > 300) {
-        scrollToTopBtn.classList.add('show');
-      } else {
-        scrollToTopBtn.classList.remove('show');
+        });
       }
-    });
 
-    // Set active navigation link on scroll
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section');
-      const scrollPos = window.scrollY + 70;
-      
-      sections.forEach(section => {
-        if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
-          const id = section.getAttribute('id');
-          document.querySelectorAll('.nav-links a').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${id}`) {
-              link.classList.add('active');
-            }
-          });
-        }
+      // Set active navigation link on scroll
+      window.addEventListener('scroll', function() {
+        const sections = document.querySelectorAll('section');
+        const scrollPos = window.pageYOffset + 70;
+        
+        sections.forEach(section => {
+          if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+            const id = section.getAttribute('id');
+            document.querySelectorAll('.nav-links a').forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === `#${id}`) {
+                link.classList.add('active');
+              }
+            });
+          }
+        });
       });
-    });
 
-    // Initialize active link on load
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelector('.nav-links a[href="#home"]').classList.add('active');
+      // Initialize active link on load
+      const homeLink = document.querySelector('.nav-links a[href="#home"]');
+      if (homeLink) {
+        homeLink.classList.add('active');
+      }
     });
   </script>
 </body>
