@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Un cammino interiore | Celeste e Davide Ferrero</title>
   <meta name="description" content="Un cammino interiore - Dialoghi terreni tra due anime. Un viaggio tra dolore, speranza, risveglio e coscienza.">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --primary: #6b4226;
@@ -559,6 +559,23 @@
       font-size: 0.95rem;
       margin-top: 1rem;
     }
+/* Aggiungi dopo .footer-content { ... } */
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+.social-links a {
+  color: white;
+  font-size: 2rem;
+  transition: transform 0.3s, color 0.3s;
+}
+.social-links a:hover {
+  transform: translateY(-3px);
+  color: var(--accent);
+}
     /* Scroll to Top */
     #scrollToTop {
       position: fixed;
@@ -978,21 +995,31 @@
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div style="font-size: 1.2rem; margin-bottom: 0.8rem; font-style: italic;">
-        Un cammino interiore<br>
-        <span style="font-size: 1rem;">Dialoghi terreni tra due anime</span>
-      </div>
-      <div style="font-size: 1rem; margin: 0.8rem 0;">
-        <strong>Celeste e Davide Ferrero</strong>
-      </div>
-      <p class="copyright">
-        © 2026 Celeste e Davide Ferrero. Tutti i diritti riservati.<br>
-        Realizzato con ❤️ per i cercatori di verità
-      </p>
+<footer>
+  <div class="footer-content">
+    <div style="font-size: 1.2rem; margin-bottom: 0.8rem; font-style: italic;">
+      Un cammino interiore<br>
+      <span style="font-size: 1rem;">Dialoghi terreni tra due anime</span>
     </div>
-  </footer>
+    <div style="font-size: 1rem; margin: 0.8rem 0;">
+      <strong>Celeste e Davide Ferrero</strong>
+    </div>
+  
+    <div class="social-links">
+      <a href="https://linkly.link/2anFV" target="_blank" rel="noopener" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+      <a href="https://linkly.link/2anFh" target="_blank" rel="noopener" aria-label="YouTube">
+        <i class="fab fa-youtube"></i>
+      </a>
+    </div>
+    
+    <p class="copyright">
+      © 2026 Celeste e Davide Ferrero. Tutti i diritti riservati.<br>
+      Realizzato con ❤️ per i cercatori di verità
+    </p>
+  </div>
+</footer>
 
   <!-- Scroll to Top Button -->
   <a href="#" id="scrollToTop" title="Torna su">
