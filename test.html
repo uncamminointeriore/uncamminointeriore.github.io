@@ -14,6 +14,7 @@
       --dark: #2c1810;
       --light: #f5f1e6;
       --text: #3a3226;
+      --shadow: 0 4px 6px rgba(0,0,0,0.1);
       --radius: 8px;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,6 +37,7 @@
     /* Header & Navigation */
     header {
       background-color: rgba(255,255,255,0.95);
+      box-shadow: var(--shadow);
       position: fixed;
       width: 100%;
       top: 0;
@@ -46,6 +48,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 5%;
+      max-width: 1400px;
       margin: 0 auto;
     }
     .logo {
@@ -161,60 +164,56 @@
       margin-bottom: 10px;
     }
     /* Book Cover */
-.book-cover-container {
-  width: 100%;
-  max-width: 300px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
+    .book-cover-container {
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .book-cover {
+      width: 100%;
+      max-width: 300px;
+      max-height: 450px;
+      border-radius: 8px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
 
-.book-cover {
-  width: 100%;
-  max-width: 300px;
-  max-height: 450px;
-  border-radius: 8px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-  transform: rotateY(-6deg);
-  transition: transform 0.4s ease;
-  overflow: hidden; /* ✅ Cambiato da visible a hidden */
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
+      transition: transform 0.4s ease;
 
+        transform: rotateY(-6deg);
+  transform-origin: center;              /* Assicura rotazione centrata */
+  will-change: transform;                /* Prepara il browser all'animazione */
+  overflow: hidden; 
+    }
+    .book-cover:hover {
+      transform: rotateY(0deg) scale(1.02);
+    }
 .book-cover img {
   width: 100%;
   height: auto;
   max-height: 450px;
   display: block;
   vertical-align: top;
+  border-radius: 8px; /* ⚠️ Vedi nota sotto */
+  object-fit: contain;
   
-  /* ❌ RIMUOVI o COMMENTA border-radius */
-  /* border-radius: 8px; */
+  /* ✅ Nuove proprietà per risolvere il problema dei bordi */
+  backface-visibility: hidden;           /* Nasconde il retro durante rotazioni 3D */
+  -webkit-backface-visibility: hidden;   /* Per Safari/Chrome */
+  transform-style: preserve-3d;          /* Migliora il rendering 3D */
+  -webkit-transform-style: preserve-3d;
   
-  /* ❌ RIMUOVI o CAMBIA object-fit */
-  /* object-fit: contain; */
-  object-fit: fill; /* ✅ Oppure rimuovi completamente questa riga */
+  /* ✅ Opzionale: maschera i micro-bordi con un'ombra trasparente */
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.01);
   
-  /* ✅ Assicurati che non ci siano margini */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
-  /* ✅ Forza rendering pulito */
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
+  /* ✅ Opzionale: forza un rendering più netto sui bordi */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
-    
-    .book-cover:hover {
-      transform: rotateY(0deg) scale(1.02);
-    }
-
-    
     /* Sections */
     section {
       padding: 5rem 5%;
-    
+      max-width: 1200px;
       margin: 0 auto;
       width: 100%;
     }
@@ -653,24 +652,6 @@
       .book-cover img {
         max-height: 500px;
       }
-
-      .book-cover img {
-  width: 100%;
-  height: 100%; /* ✅ Forza altezza piena */
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-}.book-cover img {
-  width: 100%;
-  height: 100%; /* ✅ Forza altezza piena */
-  display: block;
-  margin: 0;
-  padding: 0;
-  border: none;
-  outline: none;
-}
       
       .parkinson-container,
       .contact-container {
