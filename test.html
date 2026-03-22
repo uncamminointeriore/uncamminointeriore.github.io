@@ -164,45 +164,49 @@
       margin-bottom: 10px;
     }
     /* Book Cover */
-    .book-cover-container {
-      width: 100%;
-      max-width: 300px;
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-    }
- 
-/* Modifica il container */
+.book-cover-container {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
 .book-cover {
   width: 100%;
   max-width: 300px;
   max-height: 450px;
   border-radius: 8px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
   transform: rotateY(-6deg);
   transition: transform 0.4s ease;
-  overflow: hidden; /* ✅ Taglia tutto ciò che esce dai bordi */
+  overflow: hidden; /* ✅ Cambiato da visible a hidden */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform-style: preserve-3d;
-  will-change: transform;
-  isolation: isolate; /* ✅ Crea un nuovo stacking context */
 }
 
-
-/* E sull'immagine: RIMUOVI border-radius e aggiungi queste proprietà */
 .book-cover img {
   width: 100%;
   height: auto;
   max-height: 450px;
   display: block;
-  object-fit: contain
+  vertical-align: top;
+  
+  /* ❌ RIMUOVI o COMMENTA border-radius */
+  /* border-radius: 8px; */
+  
+  /* ❌ RIMUOVI o CAMBIA object-fit */
+  /* object-fit: contain; */
+  object-fit: fill; /* ✅ Oppure rimuovi completamente questa riga */
+  
+  /* ✅ Assicurati che non ci siano margini */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
   /* ✅ Forza rendering pulito */
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
-  image-rendering: -webkit-optimize-contrast;
-  
-  /* ✅ Maschera micro-artefatti con outline invisibile */
-  outline: 1px solid transparent;
 }
     
     .book-cover:hover {
