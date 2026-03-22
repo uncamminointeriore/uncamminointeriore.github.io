@@ -48,7 +48,7 @@
       justify-content: space-between;
       align-items: center;
       padding: 1rem 5%;
-     
+      max-width: 1400px;
       margin: 0 auto;
     }
     .logo {
@@ -171,78 +171,49 @@
       justify-content: center;
       margin: 0 auto;
     }
-    .book-cover-container {
-  width: 100%;
-  max-width: 300px;
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
+ 
+/* Modifica il container */
 .book-cover {
   width: 100%;
   max-width: 300px;
   max-height: 450px;
   border-radius: 8px;
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
   transform: rotateY(-6deg);
   transition: transform 0.4s ease;
-  overflow: hidden; /* ✅ Cambiato da visible a hidden */
+  overflow: hidden; /* ✅ Taglia tutto ciò che esce dai bordi */
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+  isolation: isolate; /* ✅ Crea un nuovo stacking context */
 }
 
+
+/* E sull'immagine: RIMUOVI border-radius e aggiungi queste proprietà */
 .book-cover img {
   width: 100%;
   height: auto;
   max-height: 450px;
   display: block;
-  vertical-align: top;
-  
-  /* ❌ RIMUOVI o COMMENTA border-radius */
-  /* border-radius: 8px; */
-  
-  /* ❌ RIMUOVI o CAMBIA object-fit */
-  /* object-fit: contain; */
-  object-fit: fill; /* ✅ Oppure rimuovi completamente questa riga */
-  
-  /* ✅ Assicurati che non ci siano margini */
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  
+  object-fit: contain
   /* ✅ Forza rendering pulito */
   transform: translateZ(0);
   -webkit-transform: translateZ(0);
+  image-rendering: -webkit-optimize-contrast;
+  
+  /* ✅ Maschera micro-artefatti con outline invisibile */
+  outline: 1px solid transparent;
 }
+    
     .book-cover:hover {
       transform: rotateY(0deg) scale(1.02);
     }
-.book-cover img {
-  width: 100%;
-  height: auto;
-  max-height: 450px;
-  display: block;
-  vertical-align: top;
-  border-radius: 8px; /* ⚠️ Vedi nota sotto */
-  object-fit: contain;
-  
-  /* ✅ Nuove proprietà per risolvere il problema dei bordi */
-  backface-visibility: hidden;           /* Nasconde il retro durante rotazioni 3D */
-  -webkit-backface-visibility: hidden;   /* Per Safari/Chrome */
-  transform-style: preserve-3d;          /* Migliora il rendering 3D */
-  -webkit-transform-style: preserve-3d;
-  
 
-  
-  /* ✅ Opzionale: forza un rendering più netto sui bordi */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-  
+    
     /* Sections */
     section {
       padding: 5rem 5%;
-
+      max-width: 1200px;
       margin: 0 auto;
       width: 100%;
     }
@@ -292,7 +263,7 @@
     }
     .for-who-card:hover {
       transform: translateY(-8px);
-   
+      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
     }
     .for-who-card i {
       font-size: 3rem;
@@ -636,7 +607,7 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-     
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s;
