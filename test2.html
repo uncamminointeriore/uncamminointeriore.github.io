@@ -220,7 +220,7 @@
       margin-bottom: 3rem;
       color: var(--dark);
       position: relative;
-      display: inline-block;
+    
       left: 50%;
       transform: translateX(-50%);
       font-style: italic;
@@ -539,7 +539,7 @@
     }
     /* CTA Final Section */
     .cta-final {
-      background: linear-gradient(rgba(44, 24, 16, 0.9), rgba(44, 24, 16, 0.95)), url('https://picsum.photos/seed/sunset/1920/800') center/cover no-repeat;
+      background: linear-gradient(rgba(44, 24, 16, 0.9), rgba(44, 24, 16, 0.95)), url('32.jpg') center/cover no-repeat;
       color: white;
       padding: 6rem 5%;
       text-align: center;
@@ -726,6 +726,104 @@
       }
       section { padding: 3rem 5%; }
     }
+
+    /* ✅ Sezione Parkinson - Allineata come la Home */
+#parkinson {
+  background: linear-gradient(rgba(44, 24, 16, 0.85), rgba(44, 24, 16, 0.9));
+  color: white;
+  text-align: center;
+}
+
+#parkinson .section-title {
+  color: white; /* ✅ Titolo bianco come la Home */
+}
+
+#parkinson .section-subtitle {
+  color: rgba(255,255,255,0.9); /* ✅ Sottotitolo chiaro */
+}
+
+.parkinson-container {
+  display: flex; /* ✅ Cambiato da grid a flex */
+  flex-direction: column;
+  align-items: center; /* ✅ Centra tutto orizzontalmente */
+  gap: 3rem;
+  margin-top: 2.5rem;
+  max-width: 900px; /* ✅ Limita larghezza come la Home */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.parkinson-text {
+  padding-right: 0;
+  text-align: center; /* ✅ Testo centrato */
+  max-width: 700px; /* ✅ Limita larghezza testo */
+  margin: 0 auto;
+}
+
+.parkinson-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.parkinson-image {
+  width: 100%;
+  max-width: 500px; /* ✅ Larghezza massima immagine */
+  height: 350px;
+  background: linear-gradient(135deg, var(--primary), var(--dark));
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  margin: 0 auto; /* ✅ Centra l'immagine */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25); /* ✅ Ombra come il libro */
+}
+
+.parkinson-quote {
+  background: rgba(255,255,255,0.1); /* ✅ Sfondo semi-trasparente */
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  margin: 1.8rem auto; /* ✅ Centrato */
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: white;
+  max-width: 600px;
+}
+
+/* ✅ Desktop: affianca testo e immagine come la Home */
+@media (min-width: 901px) {
+  #parkinson {
+    padding: 5rem 5%;
+  }
+  
+  .parkinson-container {
+    flex-direction: row; /* ✅ Affianca su desktop */
+    justify-content: center; /* ✅ Centra il contenuto */
+    align-items: center; /* ✅ Allinea verticalmente */
+    gap: 4rem;
+  }
+  
+  .parkinson-text {
+    text-align: left; /* ✅ Testo a sinistra su desktop */
+    max-width: 500px;
+    margin: 0;
+  }
+  
+  .parkinson-image {
+    max-width: 450px;
+    height: 400px;
+    margin: 0;
+  }
+  
+  .parkinson-quote {
+    margin-left: 0; /* ✅ Allinea con il testo */
+  }
+}
   </style>
 </head>
 <body>
