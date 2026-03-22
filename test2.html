@@ -430,41 +430,102 @@
       border: none;
     }
     /* Parkinson Section */
-    .parkinson-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      margin-top: 2.5rem;
-    }
-    .parkinson-text {
-      padding-right: 0;
-    }
-    .parkinson-text p {
-      margin-bottom: 1.2rem;
-      font-size: 1.1rem;
-    }
-    .parkinson-image {
-      height: 300px;
-      background: linear-gradient(135deg, var(--primary), var(--dark));
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.5rem;
-      font-style: italic;
-      text-align: center;
-      /*padding: 1.5rem;*/
-      }
-    .parkinson-quote {
-      background: var(--light);
-      padding: 1.8rem;
-      border-radius: var(--radius);
-      margin: 1.8rem 0;
-      border-left: 4px solid var(--accent);
-      font-style: italic;
-      font-size: 1.1rem;
-    }
+    /* Sezione Parkinson - Stesso stile della Home */
+#parkinson {
+  background: linear-gradient(rgba(44, 24, 16, 0.88), rgba(44, 24, 16, 0.92)), url('484.jpg') center/cover no-repeat;
+  color: white;
+  padding: 5rem 5%;
+  text-align: center;
+}
+
+#parkinson .section-title {
+  color: white;
+}
+
+#parkinson .section-subtitle {
+  color: rgba(255,255,255,0.9);
+}
+
+.parkinson-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.parkinson-text {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.parkinson-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+/* ✅ Immagine - Corretta per tag <img> */
+.parkinson-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
+}
+
+.parkinson-quote {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  margin: 2rem auto;
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: white;
+  max-width: 650px;
+  text-align: left;
+}
+
+/* ✅ Desktop - Come la Hero Section */
+@media (min-width: 901px) {
+  #parkinson {
+    padding: 6rem 5%;
+  }
+  
+  .parkinson-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    text-align: left;
+  }
+  
+  .parkinson-text {
+    text-align: left;
+    max-width: 500px;
+    margin: 0;
+  }
+  
+  .parkinson-image {
+    max-width: 450px;
+    margin: 0;
+  }
+  
+  .parkinson-quote {
+    margin-left: 0;
+    text-align: left;
+  }
+}
     /* Contact Section */
     .contact-section {
       background-color: #f8f5f0;
@@ -649,16 +710,7 @@
       .book-cover img {
         max-height: 500px;
       }
-      
-      .parkinson-container,
-      .contact-container {
-        grid-template-columns: 1fr 1fr;
-      }
-      .parkinson-text,
-      .contact-info {
-        padding-right: 2rem;
-      }
-    }
+
     /* Mobile menu - ULTRA COMPATTO */
     @media (max-width: 768px) {
       .hamburger { display: block; }
@@ -1040,26 +1092,27 @@
   </section>
 
   <!-- Parkinson Section -->
-  <section id="parkinson">
-    <h2 class="section-title">La Mia Storia</h2>
-    <p class="section-subtitle">La malattia che ha trasformato la mia vita</p>
-    <div class="parkinson-container">
-      <div class="parkinson-text">
-        <p>Quando la malattia è entrata nella mia vita, tutto è cambiato.</p>
-        <p>Non era solo una diagnosi medica. Era una sfida all'identità, alla forza, alla speranza.</p>
-        <p>Poteva trattarsi di qualsiasi grande sofferenza, il discorso sarebbe stato lo stesso.</p>
-        <p>Ho imparato che il corpo può tremare, ma l'anima può rimanere ferma e forte.</p>
-        <div class="parkinson-quote">
-          La malattia non mi ha spezzato. Mi ha insegnato a guardare oltre il fisico, a trovare la forza nelle cose invisibili.
-        </div>
-        <p>Questo libro nasce da quella trasformazione. Da quel momento in cui ho capito che il dolore può essere un maestro, non un nemico.</p>
-        <p>Se anche tu stai affrontando una sfida, sappi che non sei solo. Queste pagine sono un abbraccio, una mano tesa nel buio.</p>
+ <!-- Sezione Parkinson -->
+<section id="parkinson">
+  <h2 class="section-title">La Mia Storia</h2>
+  <p class="section-subtitle">La malattia che ha trasformato la mia vita</p>
+  <div class="parkinson-container">
+    <div class="parkinson-text">
+      <p>Quando la malattia è entrata nella mia vita, tutto è cambiato.</p>
+      <p>Non era solo una diagnosi medica. Era una sfida all'identità, alla forza, alla speranza.</p>
+      <p>Poteva trattarsi di qualsiasi grande sofferenza, il discorso sarebbe stato lo stesso.</p>
+      <p>Ho imparato che il corpo può tremare, ma l'anima può rimanere ferma e forte.</p>
+      <div class="parkinson-quote">
+        La malattia non mi ha spezzato. Mi ha insegnato a guardare oltre il fisico, a trovare la forza nelle cose invisibili.
       </div>
-      <div>
-        <img  class="parkinson-image" src="inlibreria.png" alt="Davide ed il Parkinson"/>
-      </div>
+      <p>Questo libro nasce da quella trasformazione. Da quel momento in cui ho capito che il dolore può essere un maestro, non un nemico.</p>
+      <p>Se anche tu stai affrontando una sfida, sappi che non sei solo. Queste pagine sono un abbraccio, una mano tesa nel buio.</p>
     </div>
-  </section>
+    <div>
+      <img class="parkinson-image" src="inlibreria.png" alt="Davide ed il Parkinson"/>
+    </div>
+  </div>
+</section>
 
   <!-- Contatti Section -->
   <section id="contatti" class="contact-section">
