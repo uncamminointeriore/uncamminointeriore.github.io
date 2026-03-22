@@ -171,20 +171,50 @@
       justify-content: center;
       margin: 0 auto;
     }
-    .book-cover {
-      width: 100%;
-      max-width: 300px;
-      max-height: 450px;
-      border-radius: 8px;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    .book-cover-container {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
 
-      transition: transform 0.4s ease;
+.book-cover {
+  width: 100%;
+  max-width: 300px;
+  max-height: 450px;
+  border-radius: 8px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+  transform: rotateY(-6deg);
+  transition: transform 0.4s ease;
+  overflow: hidden; /* ✅ Cambiato da visible a hidden */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
 
-        transform: rotateY(-6deg);
-  transform-origin: center;              /* Assicura rotazione centrata */
-  will-change: transform;                /* Prepara il browser all'animazione */
-  overflow: hidden; 
-    }
+.book-cover img {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  display: block;
+  vertical-align: top;
+  
+  /* ❌ RIMUOVI o COMMENTA border-radius */
+  /* border-radius: 8px; */
+  
+  /* ❌ RIMUOVI o CAMBIA object-fit */
+  /* object-fit: contain; */
+  object-fit: fill; /* ✅ Oppure rimuovi completamente questa riga */
+  
+  /* ✅ Assicurati che non ci siano margini */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+  /* ✅ Forza rendering pulito */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
     .book-cover:hover {
       transform: rotateY(0deg) scale(1.02);
     }
