@@ -527,77 +527,122 @@
   }
 }
     /* Contact Section */
-    .contact-section {
-      background-color: #f8f5f0;
-    }
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      margin-top: 2.5rem;
-    }
-    .contact-info {
-      padding-right: 0;
-    }
-    .contact-info-item {
-      margin-bottom: 1.8rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.2rem;
-    }
-    .contact-info-item i {
-      font-size: 1.5rem;
-      color: var(--primary);
-      margin-top: 0.2rem;
-    }
-    .contact-info-item h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.4rem;
-      color: var(--dark);
-    }
-    .contact-form .form-group {
-      margin-bottom: 1.2rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.9rem;
-      border: 1px solid rgba(107, 66, 38, 0.2);
-      border-radius: 8px;
-      font-family: 'Georgia', serif;
-      font-size: 1rem;
-      transition: border-color 0.3s;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-    .contact-form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    .contact-form button {
-      background: var(--accent);
-      color: var(--dark);
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 1.05rem;
-      font-family: 'Georgia', serif;
-      width: 100%;
-      max-width: 300px;
-      margin: 0 auto;
-      display: block;
-    }
-    .contact-form button:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-2px);
-    }
+ /* ===== CONTACT SECTION - CSS CORRETTO ===== */
+.contact-section {
+  background-color: #f8f5f0;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: una colonna */
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  align-items: start; /* Allinea gli elementi in alto */
+}
+
+.contact-info {
+  padding-right: 0;
+}
+
+.contact-info-item {
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.contact-info-item i {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-top: 0.2rem;
+  min-width: 24px; /* Evita che l'icona si schiacci */
+}
+
+.contact-info-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+  color: var(--dark);
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid rgba(107, 66, 38, 0.2);
+  border-radius: 8px;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  background: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(212, 167, 106, 0.2);
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background: var(--accent);
+  color: var(--dark);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1.05rem;
+  font-family: 'Georgia', serif;
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto; /* Centra il bottone */
+}
+
+.contact-form button:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ✅ DESKTOP: due colonne affiancate */
+@media (min-width: 901px) {
+  .contact-container {
+    grid-template-columns: 1fr 1.3fr; /* Info più stretta, form più largo */
+    gap: 4rem;
+  }
+  
+  .contact-info {
+    padding-right: 2rem;
+  }
+  
+  .contact-form button {
+    margin-left: 0; /* Su desktop allinea a sinistra se preferisci */
+  }
+}
+
+/* ✅ Mobile small: aggiustamenti extra */
+@media (max-width: 480px) {
+  .contact-container {
+    gap: 2rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
     /* CTA Final Section */
     .cta-final {
       background: linear-gradient(rgba(44, 24, 16, 0.9), rgba(44, 24, 16, 0.95)), url('32.jpg') center/cover no-repeat;
