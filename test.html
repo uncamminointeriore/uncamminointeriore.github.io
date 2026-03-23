@@ -102,7 +102,7 @@
       align-items: flex-start;
       justify-content: center;
       color: white;
-      padding: 2rem 5% 4rem;
+      
       box-sizing: border-box;
     }
     .hero-content-wrapper {
@@ -430,113 +430,219 @@
       border: none;
     }
     /* Parkinson Section */
-    .parkinson-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      margin-top: 2.5rem;
-    }
-    .parkinson-text {
-      padding-right: 0;
-    }
-    .parkinson-text p {
-      margin-bottom: 1.2rem;
-      font-size: 1.1rem;
-    }
-    .parkinson-image {
-      height: 300px;
-      background: linear-gradient(135deg, var(--primary), var(--dark));
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 1.5rem;
-      font-style: italic;
-      text-align: center;
-      /*padding: 1.5rem;*/
-      }
-    .parkinson-quote {
-      background: var(--light);
-      padding: 1.8rem;
-      border-radius: var(--radius);
-      margin: 1.8rem 0;
-      border-left: 4px solid var(--accent);
-      font-style: italic;
-      font-size: 1.1rem;
-    }
+    /* Sezione Parkinson - Stesso stile della Home */
+#parkinson {
+  background: linear-gradient(rgba(44, 24, 16, 0.88), rgba(44, 24, 16, 0.92)), url('484.jpg') center/cover no-repeat;
+  color: white;
+  padding: 5rem 5%;
+  text-align: center;
+}
+
+#parkinson .section-title {
+  color: white;
+}
+
+#parkinson .section-subtitle {
+  color: rgba(255,255,255,0.9);
+}
+
+.parkinson-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.parkinson-text {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.parkinson-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  opacity: 0.95;
+}
+
+/* ✅ Immagine - Corretta per tag <img> */
+.parkinson-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+  margin: 0 auto;
+  display: block;
+  object-fit: cover;
+}
+
+.parkinson-quote {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(5px);
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  margin: 2rem auto;
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+  font-size: 1.15rem;
+  color: white;
+  max-width: 650px;
+  text-align: left;
+}
+
+/* ✅ Desktop - Come la Hero Section */
+@media (min-width: 901px) {
+  #parkinson {
+    padding: 6rem 5%;
+  }
+  
+  .parkinson-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    text-align: left;
+  }
+  
+  .parkinson-text {
+    text-align: left;
+    max-width: 500px;
+    margin: 0;
+  }
+  
+  .parkinson-image {
+    max-width: 450px;
+    margin: 0;
+  }
+  
+  .parkinson-quote {
+    margin-left: 0;
+    text-align: left;
+  }
+}
     /* Contact Section */
-    .contact-section {
-      background-color: #f8f5f0;
-    }
-    .contact-container {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      margin-top: 2.5rem;
-    }
-    .contact-info {
-      padding-right: 0;
-    }
-    .contact-info-item {
-      margin-bottom: 1.8rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 1.2rem;
-    }
-    .contact-info-item i {
-      font-size: 1.5rem;
-      color: var(--primary);
-      margin-top: 0.2rem;
-    }
-    .contact-info-item h3 {
-      font-size: 1.3rem;
-      margin-bottom: 0.4rem;
-      color: var(--dark);
-    }
-    .contact-form .form-group {
-      margin-bottom: 1.2rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.9rem;
-      border: 1px solid rgba(107, 66, 38, 0.2);
-      border-radius: 8px;
-      font-family: 'Georgia', serif;
-      font-size: 1rem;
-      transition: border-color 0.3s;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-    }
-    .contact-form textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-    .contact-form button {
-      background: var(--accent);
-      color: var(--dark);
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 50px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s;
-      font-size: 1.05rem;
-      font-family: 'Georgia', serif;
-      width: 100%;
-      max-width: 300px;
-      margin: 0 auto;
-      display: block;
-    }
-    .contact-form button:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-2px);
-    }
+ /* ===== CONTACT SECTION - CSS CORRETTO ===== */
+.contact-section {
+  background-color: #f8f5f0;
+}
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile: una colonna */
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  align-items: start; /* Allinea gli elementi in alto */
+}
+
+.contact-info {
+  padding-right: 0;
+}
+
+.contact-info-item {
+  margin-bottom: 1.8rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+}
+
+.contact-info-item i {
+  font-size: 1.5rem;
+  color: var(--primary);
+  margin-top: 0.2rem;
+  min-width: 24px; /* Evita che l'icona si schiacci */
+}
+
+.contact-info-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.4rem;
+  color: var(--dark);
+}
+
+.contact-form .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px solid rgba(107, 66, 38, 0.2);
+  border-radius: 8px;
+  font-family: 'Georgia', serif;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  background: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(212, 167, 106, 0.2);
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form button {
+  background: var(--accent);
+  color: var(--dark);
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1.05rem;
+  font-family: 'Georgia', serif;
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto; /* Centra il bottone */
+}
+
+.contact-form button:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* ✅ DESKTOP: due colonne affiancate */
+@media (min-width: 901px) {
+  .contact-container {
+    grid-template-columns: 1fr 1.3fr; /* Info più stretta, form più largo */
+    gap: 4rem;
+  }
+  
+  .contact-info {
+    padding-right: 2rem;
+  }
+  
+  .contact-form button {
+    margin-left: 0; /* Su desktop allinea a sinistra se preferisci */
+  }
+}
+
+/* ✅ Mobile small: aggiustamenti extra */
+@media (max-width: 480px) {
+  .contact-container {
+    gap: 2rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+}
+
     /* CTA Final Section */
     .cta-final {
       background: linear-gradient(rgba(44, 24, 16, 0.9), rgba(44, 24, 16, 0.95)), url('32.jpg') center/cover no-repeat;
@@ -649,16 +755,7 @@
       .book-cover img {
         max-height: 500px;
       }
-      
-      .parkinson-container,
-      .contact-container {
-        grid-template-columns: 1fr 1fr;
-      }
-      .parkinson-text,
-      .contact-info {
-        padding-right: 2rem;
-      }
-    }
+
     /* Mobile menu - ULTRA COMPATTO */
     @media (max-width: 768px) {
       .hamburger { display: block; }
@@ -726,6 +823,104 @@
       }
       section { padding: 3rem 5%; }
     }
+
+    /* ✅ Sezione Parkinson - Allineata come la Home */
+#parkinson {
+  background: linear-gradient(rgba(44, 24, 16, 0.85), rgba(44, 24, 16, 0.9));
+  color: white;
+  text-align: center;
+}
+
+#parkinson .section-title {
+  color: white; /* ✅ Titolo bianco come la Home */
+}
+
+#parkinson .section-subtitle {
+  color: rgba(255,255,255,0.9); /* ✅ Sottotitolo chiaro */
+}
+
+.parkinson-container {
+  display: flex; /* ✅ Cambiato da grid a flex */
+  flex-direction: column;
+  align-items: center; /* ✅ Centra tutto orizzontalmente */
+  gap: 3rem;
+  margin-top: 2.5rem;
+  max-width: 900px; /* ✅ Limita larghezza come la Home */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.parkinson-text {
+  padding-right: 0;
+  text-align: center; /* ✅ Testo centrato */
+  max-width: 700px; /* ✅ Limita larghezza testo */
+  margin: 0 auto;
+}
+
+.parkinson-text p {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.parkinson-image {
+  width: 100%;
+  max-width: 500px; /* ✅ Larghezza massima immagine */
+  height: 350px;
+  background: linear-gradient(135deg, var(--primary), var(--dark));
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+  font-style: italic;
+  text-align: center;
+  margin: 0 auto; /* ✅ Centra l'immagine */
+  box-shadow: 0 15px 30px rgba(0,0,0,0.25); /* ✅ Ombra come il libro */
+}
+
+.parkinson-quote {
+  background: rgba(255,255,255,0.1); /* ✅ Sfondo semi-trasparente */
+  padding: 1.8rem;
+  border-radius: var(--radius);
+  margin: 1.8rem auto; /* ✅ Centrato */
+  border-left: 4px solid var(--accent);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: white;
+  max-width: 600px;
+}
+
+/* ✅ Desktop: affianca testo e immagine come la Home */
+@media (min-width: 901px) {
+  #parkinson {
+    padding: 5rem 5%;
+  }
+  
+  .parkinson-container {
+    flex-direction: row; /* ✅ Affianca su desktop */
+    justify-content: center; /* ✅ Centra il contenuto */
+    align-items: center; /* ✅ Allinea verticalmente */
+    gap: 4rem;
+  }
+  
+  .parkinson-text {
+    text-align: left; /* ✅ Testo a sinistra su desktop */
+    max-width: 500px;
+    margin: 0;
+  }
+  
+  .parkinson-image {
+    max-width: 450px;
+    height: 400px;
+    margin: 0;
+  }
+  
+  .parkinson-quote {
+    margin-left: 0; /* ✅ Allinea con il testo */
+  }
+}
   </style>
 </head>
 <body>
@@ -942,26 +1137,27 @@
   </section>
 
   <!-- Parkinson Section -->
-  <section id="parkinson">
-    <h2 class="section-title">La Mia Storia</h2>
-    <p class="section-subtitle">La malattia che ha trasformato la mia vita</p>
-    <div class="parkinson-container">
-      <div class="parkinson-text">
-        <p>Quando la malattia è entrata nella mia vita, tutto è cambiato.</p>
-        <p>Non era solo una diagnosi medica. Era una sfida all'identità, alla forza, alla speranza.</p>
-        <p>Poteva trattarsi di qualsiasi grande sofferenza, il discorso sarebbe stato lo stesso.</p>
-        <p>Ho imparato che il corpo può tremare, ma l'anima può rimanere ferma e forte.</p>
-        <div class="parkinson-quote">
-          La malattia non mi ha spezzato. Mi ha insegnato a guardare oltre il fisico, a trovare la forza nelle cose invisibili.
-        </div>
-        <p>Questo libro nasce da quella trasformazione. Da quel momento in cui ho capito che il dolore può essere un maestro, non un nemico.</p>
-        <p>Se anche tu stai affrontando una sfida, sappi che non sei solo. Queste pagine sono un abbraccio, una mano tesa nel buio.</p>
+ <!-- Sezione Parkinson -->
+<section id="parkinson">
+  <h2 class="section-title">La Mia Storia</h2>
+  <p class="section-subtitle">La malattia che ha trasformato la mia vita</p>
+  <div class="parkinson-container">
+    <div class="parkinson-text">
+      <p>Quando la malattia è entrata nella mia vita, tutto è cambiato.</p>
+      <p>Non era solo una diagnosi medica. Era una sfida all'identità, alla forza, alla speranza.</p>
+      <p>Poteva trattarsi di qualsiasi grande sofferenza, il discorso sarebbe stato lo stesso.</p>
+      <p>Ho imparato che il corpo può tremare, ma l'anima può rimanere ferma e forte.</p>
+      <div class="parkinson-quote">
+        La malattia non mi ha spezzato. Mi ha insegnato a guardare oltre il fisico, a trovare la forza nelle cose invisibili.
       </div>
-      <div>
-        <img  class="parkinson-image" src="inlibreria.png" alt="Davide ed il Parkinson"/>
-      </div>
+      <p>Questo libro nasce da quella trasformazione. Da quel momento in cui ho capito che il dolore può essere un maestro, non un nemico.</p>
+      <p>Se anche tu stai affrontando una sfida, sappi che non sei solo. Queste pagine sono un abbraccio, una mano tesa nel buio.</p>
     </div>
-  </section>
+    <div>
+      <img class="parkinson-image" src="inlibreria.png" alt="Davide ed il Parkinson"/>
+    </div>
+  </div>
+</section>
 
   <!-- Contatti Section -->
   <section id="contatti" class="contact-section">
