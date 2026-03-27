@@ -132,32 +132,89 @@
       font-style: italic;
       line-height: 1.6;
     }
+    
+    /* ✅ Pulsanti Acquista - Gruppo 50/50 */
+    .btn-group {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 480px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
     .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--dark);
-      padding: 1rem 2.5rem;
+      flex: 1;
+      min-width: 200px;
+      padding: 0.9rem 1.2rem;
       border-radius: 50px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 1rem;
       transition: all 0.3s;
       border: 2px solid var(--accent);
       cursor: pointer;
-      font-size: 1.15rem;
+      text-align: center;
       font-family: 'Georgia', serif;
-      box-shadow: 0 4px 15px rgba(212, 167, 106, 0.4);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
-    .btn:hover {
+    .btn-primary {
+      background: var(--accent);
+      color: var(--dark);
+    }
+    .btn-primary:hover {
       background: transparent;
       color: white;
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(212, 167, 106, 0.6);
     }
+    .btn-disabled {
+      background: #ccc;
+      color: #666;
+      cursor: not-allowed;
+      position: relative;
+      opacity: 0.85;
+    }
+    /* Tooltip per Audible */
+    .btn-disabled .tooltip {
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(8px);
+      background: var(--dark);
+      color: #fff;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s;
+      z-index: 10;
+      pointer-events: none;
+    }
+    .btn-disabled .tooltip::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 5px solid transparent;
+      border-top-color: var(--dark);
+    }
+    .btn-disabled:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    
     .btn-large {
       padding: 1.2rem 3rem;
       font-size: 1.25rem;
       margin-bottom: 10px;
     }
+    
     /* Book Cover */
     .book-cover-container {
       width: 100%;
@@ -328,7 +385,7 @@
       margin-top: 1rem;
       font-size: 1.1rem;
     }
-    /* Estratto Section - ora con video */
+    /* Estratto Section - con video */
     .excerpt-section {
       background-color: #f8f5f0;
       text-align: center;
@@ -341,7 +398,7 @@
     .video-embed {
       position: relative;
       width: 100%;
-      padding-top: 56.25%; /* 16:9 aspect ratio */
+      padding-top: 56.25%;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: 0 10px 30px rgba(0,0,0,0.2);
@@ -657,6 +714,8 @@
       .book-cover-container { max-width: 250px; }
       .book-cover { max-height: 380px; }
       .book-cover img { max-height: 380px; }
+      .btn-group { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 280px; }
     }
     @media (max-width: 480px) {
       .nav-links { width: 80%; padding: 0.4rem 0.8rem; }
@@ -773,7 +832,17 @@
         <h2>Dialoghi terreni tra due anime</h2>
         <p>Non è solo un libro.<br>È una conversazione che ti attraversa.</p>
         <p>Un viaggio tra dolore, speranza, risveglio e coscienza.<br>Parole che non spiegano la vita. La toccano.</p>
-        <a href="#il-libro" class="btn btn-large">Acquistalo su Amazon</a>
+        
+        <!-- ✅ Pulsanti Acquista (50/50) -->
+        <div class="btn-group">
+          <a href="https://amzn.eu/d/02U5Dmoz" target="_blank" class="btn btn-primary">
+            <i class="fab fa-amazon"></i> Acquista su Amazon
+          </a>
+          <span class="btn btn-disabled">
+            <i class="fas fa-headphones"></i> Acquista su Audible
+            <span class="tooltip">presto online</span>
+          </span>
+        </div>
       </div>
       <div class="book-cover-container">
         <div class="book-cover">
@@ -879,7 +948,7 @@
     </div>
   </section>
 
-  <!-- ✅ Estratto Section - ORA CON VIDEO (al posto del dialogo) -->
+  <!-- Estratto Section - con video -->
   <section id="estratto" class="excerpt-section">
     <h2 class="section-title">Un Estratto Video</h2>
     <p class="section-subtitle">Celeste e Davide condividono il cuore del libro</p>
@@ -900,8 +969,6 @@
       </p>
     </div>
   </section>
-
-  <!-- ❌ Video Section originale RIMOSSA -->
 
   <!-- Parkinson Section -->
   <section id="parkinson">
@@ -968,7 +1035,17 @@
   <section class="cta-final">
     <h2>Se questo libro ti sta già parlando,</h2>
     <p>forse è il momento di leggerlo</p>
-    <a href="#home" class="btn btn-large">Acquistalo su Amazon</a>
+    
+    <!-- ✅ Pulsanti Acquista (50/50) -->
+    <div class="btn-group" style="max-width:480px; margin:0 auto">
+      <a href="https://amzn.eu/d/02U5Dmoz" target="_blank" class="btn btn-primary">
+        <i class="fab fa-amazon"></i> Acquista su Amazon
+      </a>
+      <span class="btn btn-disabled">
+        <i class="fas fa-headphones"></i> Acquista su Audible
+        <span class="tooltip">presto online</span>
+      </span>
+    </div>
   </section>
 
   <!-- Footer -->
