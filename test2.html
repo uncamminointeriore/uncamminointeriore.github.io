@@ -7,430 +7,486 @@
   <meta name="description" content="Un cammino interiore - Dialoghi terreni tra due anime. Un viaggio tra dolore, speranza, risveglio e coscienza.">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    :root {
-      --primary: #6b4226;
-      --secondary: #8c5e33;
-      --accent: #d4a76a;
-      --dark: #2c1810;
-      --light: #f5f1e6;
-      --text: #3a3226;
-      --shadow: 0 4px 6px rgba(0,0,0,0.1);
-      --radius: 8px;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Georgia', serif;
-      line-height: 1.8;
-      color: var(--text);
-      background-color: var(--light);
-      overflow-x: hidden;
-      padding-top: 70px;
-    }
-    h1, h2, h3, h4 {
-      font-family: 'Georgia', serif;
-      font-weight: 400;
-      line-height: 1.3;
-    }
-    /* Header & Navigation */
-    header {
-      background-color: rgba(255,255,255,0.95);
-      box-shadow: var(--shadow);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-    }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 5%;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--primary);
-    }
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-    .nav-links a {
-      text-decoration: none;
-      color: var(--dark);
-      font-size: 1.05rem;
-      transition: color 0.3s;
-      position: relative;
-      font-family: 'Georgia', serif;
-    }
-    .nav-links a:hover, .nav-links a.active {
-      color: var(--primary);
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s;
-    }
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      color: var(--dark);
-      cursor: pointer;
-      z-index: 1001;
-    }
-    /* Hero Section */
-    .hero {
-      min-height: 100vh;
-      background: linear-gradient(rgba(44, 24, 16, 0.85), rgba(44, 24, 16, 0.9)), url('484.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      color: white;
-      
-      box-sizing: border-box;
-    }
-    .hero-content-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 900px;
-      width: 100%;
-      margin-top: 1rem;
-      gap: 2.5rem;
-    }
-    .hero-text {
-      text-align: center;
-      max-width: 700px;
-      z-index: 2;
-    }
-    .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-      font-style: italic;
-    }
-    .hero h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      font-weight: 300;
-      opacity: 0.95;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-      font-style: italic;
-      line-height: 1.6;
-    }
-    .btn {
-      display: inline-block;
-      background: var(--accent);
-      color: var(--dark);
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s;
-      border: 2px solid var(--accent);
-      cursor: pointer;
-      font-size: 1.15rem;
-      font-family: 'Georgia', serif;
-      box-shadow: 0 4px 15px rgba(212, 167, 106, 0.4);
-    }
-    .btn:hover {
-      background: transparent;
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(212, 167, 106, 0.6);
-    }
-    .btn-large {
-      padding: 1.2rem 3rem;
-      font-size: 1.25rem;
-      margin-bottom: 10px;
-    }
-    /* Book Cover */
-    .book-cover-container {
-      width: 100%;
-      max-width: 300px;
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-    }
-    .book-cover {
-      width: 100%;
-      max-width: 300px;
-      max-height: 450px;
-      border-radius: 8px;
-     
+   :root {
+  --primary: #6b4226;
+  --secondary: #8c5e33;
+  --accent: #d4a76a;
+  --dark: #2c1810;
+  --light: #f5f1e6;
+  --text: #3a3226;
+  --shadow: 0 4px 6px rgba(0,0,0,0.1);
+  --radius: 8px;
+}
 
-      transition: transform 0.4s ease;
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
 
-        transform: rotateY(-6deg);
-  transform-origin: center;              /* Assicura rotazione centrata */
-  will-change: transform;                /* Prepara il browser all'animazione */
-  overflow: hidden; 
-    }
-    .book-cover:hover {
-      transform: rotateY(0deg) scale(1.02);
-    }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Georgia', serif;
+  line-height: 1.8;
+  color: var(--text);
+  background-color: var(--light);
+  overflow-x: hidden;
+  padding-top: 70px;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Georgia', serif;
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+/* ========== HEADER & NAVIGATION ========== */
+header {
+  background-color: rgba(255,255,255,0.95);
+  box-shadow: var(--shadow);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 1.05rem;
+  transition: color 0.3s;
+  position: relative;
+  font-family: 'Georgia', serif;
+}
+
+.nav-links a:hover, 
+.nav-links a.active {
+  color: var(--primary);
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.hamburger {
+  display: none; /* Nascosto di default (desktop) */
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--dark);
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(rgba(44, 24, 16, 0.85), rgba(44, 24, 16, 0.9)), url('484.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+  box-sizing: border-box;
+}
+
+.hero-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  width: 100%;
+  margin-top: 1rem;
+  gap: 2.5rem;
+}
+
+.hero-text {
+  text-align: center;
+  max-width: 700px;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  font-style: italic;
+}
+
+.hero h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+  opacity: 0.95;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--dark);
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: 2px solid var(--accent);
+  cursor: pointer;
+  font-size: 1.15rem;
+  font-family: 'Georgia', serif;
+  box-shadow: 0 4px 15px rgba(212, 167, 106, 0.4);
+}
+
+.btn:hover {
+  background: transparent;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(212, 167, 106, 0.6);
+}
+
+.btn-large {
+  padding: 1.2rem 3rem;
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+/* Book Cover */
+.book-cover-container {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.book-cover {
+  width: 100%;
+  max-width: 300px;
+  max-height: 450px;
+  border-radius: 8px;
+  transform: rotateY(-6deg);
+  transform-origin: center;
+  will-change: transform;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.book-cover:hover {
+  transform: rotateY(0deg) scale(1.02);
+}
+
 .book-cover img {
   width: 100%;
   height: auto;
   max-height: 450px;
   display: block;
   vertical-align: top;
-  border-radius: 8px; /* ⚠️ Vedi nota sotto */
+  border-radius: 8px;
   object-fit: contain;
-  
-  /* ✅ Nuove proprietà per risolvere il problema dei bordi */
-  backface-visibility: hidden;           /* Nasconde il retro durante rotazioni 3D */
-  -webkit-backface-visibility: hidden;   /* Per Safari/Chrome */
-  transform-style: preserve-3d;          /* Migliora il rendering 3D */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transform-style: preserve-3d;
   -webkit-transform-style: preserve-3d;
-  
-  /* ✅ Opzionale: forza un rendering più netto sui bordi */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
-    /* Sections */
-    section {
-      padding: 5rem 5%;
 
-      margin: 0 auto;
-      width: 100%;
-    }
-    .section-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      color: var(--dark);
-      position: relative;
-    
-      left: 50%;
-      transform: translateX(-50%);
-      font-style: italic;
-    }
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 70px;
-      height: 3px;
-      background: var(--accent);
-    }
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.3rem;
-      color: var(--secondary);
-      margin-bottom: 2.5rem;
-      font-style: italic;
-    }
-    /* For Who Section */
-    .for-who-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    .for-who-card {
-      background: white;
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      text-align: center;
-      transition: transform 0.3s;
-      border: 1px solid rgba(107, 66, 38, 0.1);
-    }
-    .for-who-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.12);
-    }
-    .for-who-card i {
-      font-size: 3rem;
-      color: var(--accent);
-      margin-bottom: 1.2rem;
-    }
-    .for-who-card h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.8rem;
-      color: var(--dark);
-    }
-    .for-who-card p {
-      font-size: 1rem;
-    }
-    /* Authors Section */
-    .authors-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
-      margin-top: 2.5rem;
-    }
-    .author-card {
-      background: white;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s;
-    }
-    .author-card:hover {
-      transform: translateY(-5px);
-    }
-    .author-image {
-      height: 300px;
-      background-size: cover;
-      background-position: center;
-    }
-    .author-info {
-      padding: 1.8rem;
-    }
-    .author-info h3 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      color: var(--primary);
-    }
-    .author-info p {
-      margin-bottom: 1rem;
-      font-size: 1.05rem;
-    }
-    /* Reviews Section */
-    .reviews-section {
-      background-color: #f0e9dd;
-    }
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 2.5rem;
-    }
-    .review-card {
-      background: white;
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      position: relative;
-      border-left: 4px solid var(--accent);
-    }
-    .review-card::before {
-      content: '"';
-      position: absolute;
-      top: -12px;
-      left: 12px;
-      font-size: 4.5rem;
-      color: var(--accent);
-      opacity: 0.15;
-      font-family: Georgia, serif;
-    }
-    .review-text {
-      font-style: italic;
-      margin-bottom: 1.2rem;
-      line-height: 1.7;
-      font-size: 1.05rem;
-    }
-    .review-author {
-      font-weight: 600;
-      color: var(--primary);
-      display: block;
-      margin-top: 1rem;
-      font-size: 1.1rem;
-    }
-    /* Excerpt Section */
-    .excerpt-section {
-      background-color: #f8f5f0;
-    }
-    .excerpt-container {
-      background: white;
-      padding: 3rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      margin-top: 2.5rem;
-      position: relative;
-      border-left: 4px solid var(--accent);
-    }
-    .excerpt-container::before {
-      content: '"';
-      position: absolute;
-      top: -15px;
-      left: 15px;
-      font-size: 6rem;
-      color: var(--accent);
-      opacity: 0.2;
-      font-family: Georgia, serif;
-    }
-    .excerpt-text {
-      font-size: 1.2rem;
-      line-height: 1.9;
-      font-style: italic;
-      color: var(--dark);
-    }
-    .excerpt-dialogue {
-      margin-bottom: 1.2rem;
-    }
-    .excerpt-dialogue .speaker {
-      font-weight: 600;
-      color: var(--primary);
-      display: block;
-      margin-bottom: 0.4rem;
-    }
-    .excerpt-dialogue .text {
-      margin-left: 1.2rem;
-      margin-bottom: 1.2rem;
-    }
-    .excerpt-attribution {
-      text-align: right;
-      margin-top: 1.5rem;
-      font-weight: 600;
-      color: var(--secondary);
-      font-style: normal;
-      font-size: 1.1rem;
-    }
-    /* Video Section */
-    .video-container {
-      background: linear-gradient(135deg, var(--dark), var(--primary));
-      color: white;
-      padding: 5rem 5%;
-      text-align: center;
-    }
-    .video-content {
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .video-embed {
-      position: relative;
-      width: 100%;
-      max-width: 550px;
-      margin: 2.5rem auto;
-      padding-top: 56.25%;
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-    }
-    .video-embed iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    /* Parkinson Section */
-    /* Sezione Parkinson - Stesso stile della Home */
+/* ========== SECTIONS GENERAL ========== */
+section {
+  padding: 5rem 5%;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--dark);
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-style: italic;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.3rem;
+  color: var(--secondary);
+  margin-bottom: 2.5rem;
+  font-style: italic;
+}
+
+/* ========== FOR WHO SECTION ========== */
+.for-who-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.for-who-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: transform 0.3s;
+  border: 1px solid rgba(107, 66, 38, 0.1);
+}
+
+.for-who-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.for-who-card i {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 1.2rem;
+}
+
+.for-who-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--dark);
+}
+
+.for-who-card p {
+  font-size: 1rem;
+}
+
+/* ========== AUTHORS SECTION ========== */
+.authors-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+}
+
+.author-card {
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+
+.author-card:hover {
+  transform: translateY(-5px);
+}
+
+.author-image {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+}
+
+.author-info {
+  padding: 1.8rem;
+}
+
+.author-info h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.author-info p {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+/* ========== REVIEWS SECTION ========== */
+.reviews-section {
+  background-color: #f0e9dd;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.review-card {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  border-left: 4px solid var(--accent);
+}
+
+.review-card::before {
+  content: '"';
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  font-size: 4.5rem;
+  color: var(--accent);
+  opacity: 0.15;
+  font-family: Georgia, serif;
+}
+
+.review-text {
+  font-style: italic;
+  margin-bottom: 1.2rem;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.review-author {
+  font-weight: 600;
+  color: var(--primary);
+  display: block;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* ========== EXCERPT SECTION ========== */
+.excerpt-section {
+  background-color: #f8f5f0;
+}
+
+.excerpt-container {
+  background: white;
+  padding: 3rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-top: 2.5rem;
+  position: relative;
+  border-left: 4px solid var(--accent);
+}
+
+.excerpt-container::before {
+  content: '"';
+  position: absolute;
+  top: -15px;
+  left: 15px;
+  font-size: 6rem;
+  color: var(--accent);
+  opacity: 0.2;
+  font-family: Georgia, serif;
+}
+
+.excerpt-text {
+  font-size: 1.2rem;
+  line-height: 1.9;
+  font-style: italic;
+  color: var(--dark);
+}
+
+.excerpt-dialogue {
+  margin-bottom: 1.2rem;
+}
+
+.excerpt-dialogue .speaker {
+  font-weight: 600;
+  color: var(--primary);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.excerpt-dialogue .text {
+  margin-left: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.excerpt-attribution {
+  text-align: right;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  color: var(--secondary);
+  font-style: normal;
+  font-size: 1.1rem;
+}
+
+/* ========== VIDEO SECTION ========== */
+.video-container {
+  background: linear-gradient(135deg, var(--dark), var(--primary));
+  color: white;
+  padding: 5rem 5%;
+  text-align: center;
+}
+
+.video-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+  margin: 2.5rem auto;
+  padding-top: 56.25%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ========== PARKINSON SECTION ========== */
 #parkinson {
   background: linear-gradient(rgba(44, 24, 16, 0.88), rgba(44, 24, 16, 0.92)), url('484.jpg') center/cover no-repeat;
   color: white;
@@ -470,7 +526,6 @@
   opacity: 0.95;
 }
 
-/* ✅ Immagine - Corretta per tag <img> */
 .parkinson-image {
   width: 100%;
   max-width: 500px;
@@ -496,48 +551,17 @@
   text-align: left;
 }
 
-/* ✅ Desktop - Come la Hero Section */
-@media (min-width: 901px) {
-  #parkinson {
-    padding: 6rem 5%;
-  }
-  
-  .parkinson-container {
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
-    text-align: left;
-  }
-  
-  .parkinson-text {
-    text-align: left;
-    max-width: 500px;
-    margin: 0;
-  }
-  
-  .parkinson-image {
-    max-width: 450px;
-    margin: 0;
-  }
-  
-  .parkinson-quote {
-    margin-left: 0;
-    text-align: left;
-  }
-}
-    /* Contact Section */
- /* ===== CONTACT SECTION - CSS CORRETTO ===== */
+/* ========== CONTACT SECTION ========== */
 .contact-section {
   background-color: #f8f5f0;
 }
 
 .contact-container {
   display: grid;
-  grid-template-columns: 1fr; /* Mobile: una colonna */
+  grid-template-columns: 1fr;
   gap: 2.5rem;
   margin-top: 2.5rem;
-  align-items: start; /* Allinea gli elementi in alto */
+  align-items: start;
 }
 
 .contact-info {
@@ -555,7 +579,7 @@
   font-size: 1.5rem;
   color: var(--primary);
   margin-top: 0.2rem;
-  min-width: 24px; /* Evita che l'icona si schiacci */
+  min-width: 24px;
 }
 
 .contact-info-item h3 {
@@ -606,7 +630,7 @@
   width: 100%;
   max-width: 300px;
   display: block;
-  margin: 0 auto; /* Centra il bottone */
+  margin: 0 auto;
 }
 
 .contact-form button:hover {
@@ -615,10 +639,164 @@
   transform: translateY(-2px);
 }
 
-/* ✅ DESKTOP: due colonne affiancate */
+/* ========== CTA FINAL SECTION ========== */
+.cta-final {
+  background: linear-gradient(rgba(44, 24, 16, 0.9), rgba(44, 24, 16, 0.95)), url('32.jpg') center/cover no-repeat;
+  color: white;
+  padding: 6rem 5%;
+  text-align: center;
+}
+
+.cta-final h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.8rem;
+  font-style: italic;
+}
+
+.cta-final p {
+  font-size: 1.3rem;
+  margin-bottom: 2.5rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  font-style: italic;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--dark);
+  color: rgba(255,255,255,0.8);
+  padding: 2.5rem 5%;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.copyright {
+  opacity: 0.7;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.social-links a {
+  color: white;
+  font-size: 2rem;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+  transform: translateY(-3px);
+  color: var(--accent);
+}
+
+/* ========== SCROLL TO TOP ========== */
+#scrollToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--accent);
+  color: var(--dark);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  z-index: 999;
+  cursor: pointer;
+}
+
+#scrollToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#scrollToTop:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* ========================================
+   ===== MEDIA QUERIES: DESKTOP (≥901px) =====
+   ======================================== */
 @media (min-width: 901px) {
+  .hero {
+    align-items: center;
+    padding: 0 5%;
+  }
+  
+  .hero-content-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 4rem;
+    margin-top: 0;
+  }
+  
+  .hero-text {
+    text-align: left;
+    max-width: 600px;
+  }
+  
+  .hero h1 { font-size: 3.8rem; }
+  .hero h2 { font-size: 2.1rem; }
+  .hero p { font-size: 1.4rem; }
+  
+  .book-cover-container {
+    max-width: 320px;
+  }
+  .book-cover,
+  .book-cover img {
+    max-height: 500px;
+  }
+
+  /* Parkinson desktop */
+  #parkinson {
+    padding: 6rem 5%;
+  }
+  
+  .parkinson-container {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    text-align: left;
+  }
+  
+  .parkinson-text {
+    text-align: left;
+    max-width: 500px;
+    margin: 0;
+  }
+  
+  .parkinson-image {
+    max-width: 450px;
+    margin: 0;
+  }
+  
+  .parkinson-quote {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  /* Contact desktop */
   .contact-container {
-    grid-template-columns: 1fr 1.3fr; /* Info più stretta, form più largo */
+    grid-template-columns: 1fr 1.3fr;
     gap: 4rem;
   }
   
@@ -627,298 +805,142 @@
   }
   
   .contact-form button {
-    margin-left: 0; /* Su desktop allinea a sinistra se preferisci */
+    margin-left: 0;
   }
 }
 
-/* ✅ Mobile small: aggiustamenti extra */
-@media (max-width: 480px) {
+/* ========================================
+   ===== MEDIA QUERIES: MOBILE (≤900px) =====
+   ======================================== */
+@media (max-width: 900px) {
+  /* === MENU HAMBURGER === */
+  .hamburger {
+    display: block; /* Mostra hamburger su mobile */
+  }
+  
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    flex-direction: column;
+    background: white;
+    width: 75%;
+    max-width: 280px;
+    height: calc(100vh - 70px);
+    padding: 1rem;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
+    gap: 0 !important;
+  }
+  
+  .nav-links.active {
+    right: 0; /* Menu visibile */
+  }
+  
+  .nav-links li {
+    margin: 0.5rem 0 !important;
+    padding: 0.2rem 0 !important;
+    border-bottom: 1px solid rgba(107, 66, 38, 0.08);
+  }
+  
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-links a {
+    font-size: 1.1rem !important;
+    padding: 0.8rem 0 !important;
+    display: block;
+  }
+
+  /* === HERO MOBILE === */
+  .hero h1 { font-size: 2.3rem; }
+  .hero h2 { font-size: 1.5rem; }
+  .hero p { font-size: 1.1rem; }
+  .book-cover-container { max-width: 250px; }
+  .book-cover,
+  .book-cover img { max-height: 380px; }
+
+  /* === SEZIONI GENERALI === */
+  .section-title {
+    font-size: 2rem;
+    width: 100%;
+    left: 0;
+    transform: none;
+  }
+  
+  section { padding: 3rem 5%; }
+
+  /* === PARKINSON MOBILE === */
+  #parkinson {
+    padding: 4rem 5%;
+  }
+  
+  .parkinson-container {
+    gap: 2.5rem;
+  }
+  
+  .parkinson-text {
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  .parkinson-image {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .parkinson-quote {
+    margin: 1.8rem auto;
+    text-align: center;
+  }
+
+  /* === CONTACT MOBILE === */
   .contact-container {
     gap: 2rem;
   }
+  
   .contact-form input,
   .contact-form textarea {
     padding: 0.8rem;
     font-size: 0.95rem;
   }
+
+  /* === CTA FINAL MOBILE === */
+  .cta-final h2 { font-size: 2rem; }
+  .cta-final p { font-size: 1.1rem; }
 }
 
-    /* CTA Final Section */
-    .cta-final {
-      background: linear-gradient(rgba(44, 24, 16, 0.9), rgba(44, 24, 16, 0.95)), url('32.jpg') center/cover no-repeat;
-      color: white;
-      padding: 6rem 5%;
-      text-align: center;
-    }
-    .cta-final h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.8rem;
-      font-style: italic;
-    }
-    .cta-final p {
-      font-size: 1.3rem;
-      margin-bottom: 2.5rem;
-      max-width: 650px;
-      margin-left: auto;
-      margin-right: auto;
-      font-style: italic;
-    }
-    /* Footer */
-    footer {
-      background: var(--dark);
-      color: rgba(255,255,255,0.8);
-      padding: 2.5rem 5%;
-      text-align: center;
-    }
-    .footer-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .copyright {
-      opacity: 0.7;
-      font-size: 0.95rem;
-      margin-top: 1rem;
-    }
-/* Aggiungi dopo .footer-content { ... } */
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 1.5rem 0;
-}
-.social-links a {
-  color: white;
-  font-size: 2rem;
-  transition: transform 0.3s, color 0.3s;
-}
-.social-links a:hover {
-  transform: translateY(-3px);
-  color: var(--accent);
-}
-    /* Scroll to Top */
-    #scrollToTop {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      background: var(--accent);
-      color: var(--dark);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s;
-      z-index: 999;
-      cursor: pointer;
-    }
-    #scrollToTop.show {
-      opacity: 1;
-      visibility: visible;
-    }
-    #scrollToTop:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-3px);
-    }
-    /* Desktop layout */
-    @media (min-width: 901px) {
-      .hero {
-        align-items: center;
-        padding: 0 5%;
-      }
-      .hero-content-wrapper {
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 4rem;
-        margin-top: 0;
-      }
-      .hero-text {
-        text-align: left;
-        max-width: 600px;
-      }
-      .hero h1 { font-size: 3.8rem; }
-      .hero h2 { font-size: 2.1rem; }
-      .hero p { font-size: 1.4rem; }
-      
-      .book-cover-container {
-        max-width: 320px;
-      }
-      .book-cover {
-        max-height: 500px;
-      }
-      .book-cover img {
-        max-height: 500px;
-      }
-
-    /* Mobile menu - ULTRA COMPATTO */
-    @media (max-width: 768px) {
-      .hamburger { display: block; }
-      .nav-links {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        flex-direction: column;
-        background: white;
-        width: 70%;
-        max-width: 250px;
-        height: auto;
-        min-height: 200px;
-        max-height: calc(100vh - 70px);
-        padding: 0.5rem 1rem;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-        transition: right 0.3s ease;
-        z-index: 999;
-        overflow-y: auto;
-        gap: 0 !important;
-        line-height: 2 !important;
-      }
-      .nav-links.active {
-        right: 0;
-      }
-      .nav-links li {
-        margin: 0.15rem 0 !important;
-        padding: 0.1rem 0 !important;
-        border-bottom: 1px solid rgba(107, 66, 38, 0.08);
-       
-      }
-      .nav-links li:last-child {
-        border-bottom: none;
-      }
-      .nav-links a {
-        font-size: 0.95rem !important;
-        padding: 0.35rem 0 !important;
-        display: block;
-        
-      }
-      .section-title {
-        font-size: 2rem;
-        width: 100%;
-        left: 0;
-        transform: none;
-      }
-      .hero h1 { font-size: 2.3rem; }
-      .hero h2 { font-size: 1.5rem; }
-      .hero p { font-size: 1.1rem; }
-      .book-cover-container { max-width: 250px; }
-      .book-cover { max-height: 380px; }
-      .book-cover img { max-height: 380px; }
-    }
-    @media (max-width: 480px) {
-      .nav-links {
-        width: 80%;
-        padding: 0.4rem 0.8rem;
-      }
-      .nav-links li {
-        margin: 0.1rem 0 !important;
-      }
-      .nav-links a {
-        font-size: 0.9rem !important;
-        padding: 0.3rem 0 !important;
-      }
-      section { padding: 3rem 5%; }
-    }
-
-    /* ✅ Sezione Parkinson - Allineata come la Home */
-#parkinson {
-  background: linear-gradient(rgba(44, 24, 16, 0.85), rgba(44, 24, 16, 0.9));
-  color: white;
-  text-align: center;
-}
-
-#parkinson .section-title {
-  color: white; /* ✅ Titolo bianco come la Home */
-}
-
-#parkinson .section-subtitle {
-  color: rgba(255,255,255,0.9); /* ✅ Sottotitolo chiaro */
-}
-
-.parkinson-container {
-  display: flex; /* ✅ Cambiato da grid a flex */
-  flex-direction: column;
-  align-items: center; /* ✅ Centra tutto orizzontalmente */
-  gap: 3rem;
-  margin-top: 2.5rem;
-  max-width: 900px; /* ✅ Limita larghezza come la Home */
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.parkinson-text {
-  padding-right: 0;
-  text-align: center; /* ✅ Testo centrato */
-  max-width: 700px; /* ✅ Limita larghezza testo */
-  margin: 0 auto;
-}
-
-.parkinson-text p {
-  margin-bottom: 1.2rem;
-  font-size: 1.1rem;
-  line-height: 1.8;
-}
-
-.parkinson-image {
-  width: 100%;
-  max-width: 500px; /* ✅ Larghezza massima immagine */
-  height: 350px;
-  background: linear-gradient(135deg, var(--primary), var(--dark));
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.5rem;
-  font-style: italic;
-  text-align: center;
-  margin: 0 auto; /* ✅ Centra l'immagine */
-  box-shadow: 0 15px 30px rgba(0,0,0,0.25); /* ✅ Ombra come il libro */
-}
-
-.parkinson-quote {
-  background: rgba(255,255,255,0.1); /* ✅ Sfondo semi-trasparente */
-  padding: 1.8rem;
-  border-radius: var(--radius);
-  margin: 1.8rem auto; /* ✅ Centrato */
-  border-left: 4px solid var(--accent);
-  font-style: italic;
-  font-size: 1.1rem;
-  color: white;
-  max-width: 600px;
-}
-
-/* ✅ Desktop: affianca testo e immagine come la Home */
-@media (min-width: 901px) {
-  #parkinson {
-    padding: 5rem 5%;
+/* ========================================
+   ===== EXTRA SMALL MOBILE (≤480px) =====
+   ======================================== */
+@media (max-width: 480px) {
+  .nav-links {
+    width: 85%;
+    padding: 0.8rem;
   }
   
-  .parkinson-container {
-    flex-direction: row; /* ✅ Affianca su desktop */
-    justify-content: center; /* ✅ Centra il contenuto */
-    align-items: center; /* ✅ Allinea verticalmente */
-    gap: 4rem;
+  .nav-links a {
+    font-size: 1rem !important;
+    padding: 0.7rem 0 !important;
   }
   
-  .parkinson-text {
-    text-align: left; /* ✅ Testo a sinistra su desktop */
-    max-width: 500px;
-    margin: 0;
+  .hero h1 { font-size: 2rem; }
+  .hero h2 { font-size: 1.3rem; }
+  
+  .btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
   }
   
-  .parkinson-image {
-    max-width: 450px;
-    height: 400px;
-    margin: 0;
+  .excerpt-container {
+    padding: 2rem 1.5rem;
   }
   
-  .parkinson-quote {
-    margin-left: 0; /* ✅ Allinea con il testo */
+  .excerpt-text {
+    font-size: 1.1rem;
   }
 }
   </style>
