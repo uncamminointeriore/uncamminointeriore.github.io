@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Un cammino interiore | Celeste e Davide Ferrero</title>
+  <style>
+    /* Reset & Base */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; background: #fafafa; }
+    
+    /* Navigazione */
+    nav { background: #222; padding: 15px 20px; position: sticky; top: 0; z-index: 100; display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; }
+    nav a { color: #fff; text-decoration: none; font-size: 0.95rem; transition: color 0.3s; }
+    nav a:hover { color: #FF9900; }
+
+    /* Sezioni */
+    section { padding: 60px 20px; max-width: 800px; margin: 0 auto; text-align: center; }
+    section:nth-child(even) { background: #fff; }
+    h1 { font-size: 2.5rem; margin-bottom: 10px; color: #111; }
+    h2 { font-size: 2rem; margin-bottom: 20px; color: #2c3e50; }
+    h3 { font-size: 1.5rem; margin: 15px 0 10px; color: #444; }
+    p, ul, blockquote { margin-bottom: 15px; }
+    ul { list-style: none; text-align: left; }
+    li { margin-bottom: 15px; padding-left: 10px; border-left: 3px solid #ccc; }
+    li strong { color: #d35400; }
+    blockquote { font-style: italic; border-left: 4px solid #FF9900; padding-left: 15px; margin: 20px 0; background: #f9f9f9; padding: 15px; border-radius: 0 8px 8px 0; }
+
+    /* Pulsanti & CTA */
+    .pulsanti-acquisto { display: flex; flex-direction: column; gap: 12px; margin: 25px auto; max-width: 350px; }
+    .btn { display: block; padding: 14px 20px; text-decoration: none; border-radius: 8px; text-align: center; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .btn-amazon { background-color: #FF9900; color: #111; }
+    .btn-audible { background-color: #00A8E1; color: #fff; }
+    .btn-libreria { background-color: #4CAF50; color: #fff; }
+    .badge { font-size: 0.75em; background: #e0e0e0; color: #333; padding: 2px 8px; border-radius: 12px; margin-left: 6px; }
+
+    /* Testo libreria */
+    .testo-libreria { margin-top: 8px; font-size: 0.95rem; color: #666; font-style: italic; }
+
+    /* Form */
+    form { max-width: 500px; margin: 20px auto; text-align: left; }
+    label { display: block; margin-bottom: 5px; font-weight: bold; }
+    input, textarea { width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-family: inherit; }
+    button[type="submit"] { background: #2c3e50; color: #fff; padding: 12px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; font-size: 1rem; transition: background 0.3s; }
+    button[type="submit"]:hover { background: #1a252f; }
+
+    /* Footer */
+    footer { background: #111; color: #aaa; text-align: center; padding: 30px 20px; font-size: 0.9rem; }
+    footer p { margin: 5px 0; }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.7rem; }
+      nav { gap: 10px; font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#per-chi">Per Te</a>
+    <a href="#autori">Autori</a>
+    <a href="#recensioni">Recensioni</a>
+    <a href="#estratto">Video</a>
+    <a href="#parkinson">Storia</a>
+    <a href="#contatti">Contatti</a>
+  </nav>
+
+  <section id="home">
+    <h1>Un cammino interiore</h1>
+    <h2>Dialoghi terreni tra due anime</h2>
+    <p>Non è solo un libro. È una conversazione che ti attraversa.<br>
+    Un viaggio tra dolore, speranza, risveglio e coscienza. Parole che non spiegano la vita. La toccano.</p>
+    
+    <div class="pulsanti-acquisto">
+      <a href="https://amzn.eu/d/03jxsSfG" target="_blank" rel="noopener" class="btn btn-amazon">Acquista su Amazon</a>
+      <a href="#" class="btn btn-audible">Acquista su Audible <span class="badge">presto online</span></a>
+      <p class="testo-libreria">Oppure potrai recarti in libreria ed ordinare il libro</p>
+      <a href="https://www.google.com/maps/search/libreria+vicino+a+me" target="_blank" rel="noopener noreferrer" class="btn btn-libreria">📍 Trova la libreria più vicina</a>
+    </div>
+  </section>
+
+  <section id="il-libro">
+    <h2>Il Libro</h2>
+    <p>Questo libro nasce da un incontro.<br>
+    Due anime, due storie, un dialogo autentico.<br>
+    Pagina dopo pagina, il lettore entra in conversazioni vere. Senza maschere. Senza retorica.<br>
+    Si parla di dolore, di cadute, di silenzi. Ma soprattutto di luce.<br>
+    È un libro per chi si sente in cammino. Per chi sta cercando risposte. Per chi non vuole arrendersi.</p>
+    <blockquote>"Qui non stai comprando carta. Stai comprando un viaggio."</blockquote>
+  </section>
+
+  <section id="per-chi">
+    <h2>Per Chi È</h2>
+    <p>Questo libro è per te se...</p>
+    <ul>
+      <li><strong>Stai attraversando un momento difficile</strong><br>E cerchi parole che ti capiscano davvero.</li>
+      <li><strong>Senti che c'è qualcosa di più</strong><br>E vuoi scoprire cosa ti sta chiamando.</li>
+      <li><strong>Vuoi ritrovare te stesso</strong><br>E hai bisogno di una guida gentile.</li>
+    </ul>
+  </section>
+
+  <section id="autori">
+    <h2>Gli Autori</h2>
+    <h3>Davide Ferrero</h3>
+    <p>Ha conosciuto il dolore da vicino. Ma ha scelto di trasformarlo in consapevolezza. La sua esperienza lo ha portato a cercare risposte oltre le apparenze.</p>
+    <h3>Celeste</h3>
+    <p>Porta nel dialogo sensibilità, ascolto e profondità. La sua voce è quella della compassione, della comprensione silenziosa che accoglie senza giudicare. Come una fenice, trasforma il dolore in rinascita.</p>
+    <p><em>Insieme hanno dato voce a un cammino che non appartiene solo a loro. Appartiene a chiunque sia pronto ad ascoltare.</em></p>
+  </section>
+
+  <section id="recensioni">
+    <h2>Cosa Dicono i Lettori</h2>
+    <p><em>Testimonianze di chi ha intrapreso il cammino</em></p>
+    <blockquote>Questo libro mi ha letteralmente salvato la vita. In un momento di profonda crisi, le parole di Celeste e Davide mi hanno fatto sentire meno solo.<br>— <strong>Marco T., Milano</strong></blockquote>
+    <blockquote>Ho letto centinaia di libri spirituali, ma questo è diverso. La sincerità con cui affrontano il dolore è disarmante.<br>— <strong>Laura B., Roma</strong></blockquote>
+    <blockquote>La storia di Davide con la malattia mi ha toccato profondamente. Mi ha insegnato a guardare oltre la malattia.<br>— <strong>Anna M., Torino</strong></blockquote>
+  </section>
+
+  <section id="estratto">
+    <h2>Un Estratto Video</h2>
+    <p>Celeste e Davide condividono il cuore del libro</p>
+    <p><em>Guarda il video per approfondire il messaggio del libro</em></p>
+    <!-- Inserire qui iframe YouTube o tag <video> -->
+  </section>
+
+  <section id="parkinson">
+    <h2>La Mia Storia</h2>
+    <h3>La malattia che ha trasformato la mia vita</h3>
+    <p>Quando la malattia è entrata nella mia vita, tutto è cambiato. Non era solo una diagnosi medica. Era una sfida all'identità, alla forza, alla speranza.<br>
+    Poteva trattarsi di qualsiasi grande sofferenza, il discorso sarebbe stato lo stesso.<br>
+    Ho imparato che il corpo può tremare, ma l'anima può rimanere ferma e forte.<br>
+    <em>La malattia non mi ha spezzato. Mi ha insegnato a guardare oltre il fisico, a trovare la forza nelle cose invisibili.</em></p>
+    <p>Questo libro nasce da quella trasformazione. Da quel momento in cui ho capito che il dolore può essere un maestro, non un nemico.<br>
+    Se anche tu stai affrontando una sfida, sappi che non sei solo. Queste pagine sono un abbraccio, una mano tesa nel buio.</p>
+  </section>
+
+  <section id="contatti">
+    <h2>Contattaci</h2>
+    <p>Scrivici per qualsiasi domanda o riflessione</p>
+    <p><strong>Email:</strong> <a href="mailto:uncamminointeriore@icloud.com">uncamminointeriore@icloud.com</a></p>
+    
+    <form action="#" method="post">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+      <label for="messaggio">Messaggio</label>
+      <textarea id="messaggio" name="messaggio" rows="4" required></textarea>
+      <button type="submit">Invia Messaggio</button>
+    </form>
+
+    <div class="cta-finale">
+      <h3>Se questo libro ti sta già parlando, forse è il momento di leggerlo</h3>
+      <div class="pulsanti-acquisto">
+        <a href="https://amzn.eu/d/03jxsSfG" target="_blank" rel="noopener" class="btn btn-amazon">Acquista su Amazon</a>
+        <a href="#" class="btn btn-audible">Acquista su Audible <span class="badge">presto online</span></a>
+        <p class="testo-libreria">Oppure potrai recarti in libreria ed ordinare il libro</p>
+        <a href="https://www.google.com/maps/search/libreria+vicino+a+me" target="_blank" rel="noopener noreferrer" class="btn btn-libreria">📍 Trova la libreria più vicina</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <h3>Un cammino interiore | Dialoghi terreni tra due anime | Celeste e Davide Ferrero</h3>
+    <p>© 2026 Celeste e Davide Ferrero. Tutti i diritti riservati.<br>
+    Realizzato con ❤️ per i cercatori di verità</p>
+    <!-- Tracking Pixel -->
+    <img src="//www.shinystat.com/cgi-bin/shinystat.cgi?USER=SS-55016677-94bf1" alt="ShinyStat" style="display:none;">
+  </footer>
+
+</body>
+</html>
