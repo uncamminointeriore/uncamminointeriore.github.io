@@ -215,6 +215,42 @@
       margin-bottom: 10px;
     }
     
+    /* ✅ Testo libreria - Base + Mobile Optimized */
+    .testo-libreria {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      font-style: italic;
+      text-align: center;
+      line-height: 1.5;
+      opacity: 0.9;
+      padding: 0 0.5rem;
+      display: block;
+      width: 100%;
+    }
+    .cta-final .testo-libreria {
+      color: rgba(255,255,255,0.9);
+    }
+    
+    /* ✅ Mobile: tablet (max 768px) */
+    @media (max-width: 768px) {
+      .testo-libreria {
+        font-size: 0.9rem;
+        margin-top: 0.8rem;
+        padding: 0 1rem;
+      }
+    }
+    
+    /* ✅ Mobile: smartphone piccoli (max 480px) */
+    @media (max-width: 480px) {
+      .testo-libreria {
+        font-size: 0.85rem;
+        margin-top: 0.7rem;
+        padding: 0 0.8rem;
+        line-height: 1.4;
+      }
+    }
+    
     /* Book Cover */
     .book-cover-container {
       width: 100%;
@@ -843,6 +879,8 @@
             <span class="tooltip">presto online</span>
           </span>
         </div>
+        <!-- ✅ Testo libreria aggiunto -->
+        <p class="testo-libreria">Oppure potrai recarti in libreria ed ordinare la tua copia!</p>
       </div>
       <div class="book-cover-container">
         <div class="book-cover">
@@ -1043,6 +1081,8 @@
         <span class="tooltip">presto online</span>
       </span>
     </div>
+    <!-- ✅ Testo libreria aggiunto -->
+    <p class="testo-libreria">Oppure potrai recarti in libreria ed ordinare la tua copia!</p>
   </section>
 
   <!-- Footer -->
